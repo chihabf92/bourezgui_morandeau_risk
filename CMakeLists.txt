@@ -3,4 +3,13 @@ cmake_minimum_required (VERSION 2.6)
 project (Risk)
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
-add_executable(Main src/Main.cpp)
+add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat.cpp)
+# SFML
+set(SFML_ROOT "/usr/lsa")
+set(CMAKE_MODULE_PATH "${SFML_ROOT}/share/SFML/cmake/Modules"
+${CMAKE_MODULE_PATH})
+find_package(SFML 2 COMPONENTS graphics window system)
+if(SFML_FOUND)
+   include_directories(${SFML_INCLUDE_DIR})
+   target_link_libraries(Main ${SFML_LIBRARIES})
+endif()
