@@ -2,20 +2,30 @@
 #include <vector>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Joueur.hpp"
+#include "Pion.hpp"
+#include "Territoire.hpp"
+#include "Etat.hpp"
+#include "Frontiere.hpp"
 using namespace std;
 using namespace sf;
 
 int main ()
+
 {
-	//cout << "Hello world!" << endl;
-	/*Creation d'une fenetre de rendu*/
+	/*Création de trois joueurs*/
 	
+	//joueur_1 = new Joueur;
+
+	
+	/*Creation d'une fenetre de rendu*/
+		
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "RISK");
 	while (true)
 	{
 		Image fond;
 		Texture texture;
-		if (!texture.loadFromFile("carte_risk.png"))
+		if (!texture.loadFromFile("../res/carte_risk.png"))
 		{
 			cout << "\n erreur chargement image\n " << endl;
 		}
