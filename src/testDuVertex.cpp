@@ -1,30 +1,6 @@
-#include <cstdlib>
-#include <vector>
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Joueur.hpp"
-#include "Pion.hpp"
-#include "Territoire.hpp"
-#include "Etat.hpp"
-#include "Frontiere.hpp"
-#include "TileMap.hpp"
-#include <fstream>
-#include <vector>
-using namespace std;
-using namespace sf;
-
-int main ()
-
+int main()
 {
-	
-
-	
-	/*Creation des pays*/
-	
-	
-	
-	
-	// on crée la fenêtre
+    // on crée la fenêtre
     sf::RenderWindow window(sf::VideoMode(1152, 1152), "Tilemap");
 
     // on définit le niveau à l'aide de numéro de tuiles
@@ -80,35 +56,3 @@ int main ()
 
     return 0;
 }
-
-
-
-
-
-
-	/*Création de trois joueurs*/
-	
-	//joueur_1 = new Joueur;
-
-	
-	/*Creation d'une fenetre de rendu*/
-	/*
-	sf::RenderWindow window(sf::VideoMode(1150, 1150), "RISK");
-	while (window.isOpen())	
-	{
-		Image fond;
-		Texture texture;
-		if (!texture.loadFromFile("../res/carte_risk.png"))
-		{
-			cout << "\n erreur chargement image\n " << endl;
-		}
-		Sprite sprite;
-		sprite.setTexture(texture);
-		window.clear();
-		window.draw(sprite);
-		window.display();
-	
-	}	
-	
-	return 0;
-	*/

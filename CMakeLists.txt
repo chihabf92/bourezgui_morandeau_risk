@@ -13,3 +13,5 @@ if(SFML_FOUND)
    include_directories(${SFML_INCLUDE_DIR})
    target_link_libraries(Main ${SFML_LIBRARIES})
 endif()
+
+#pour caque terminal, copier la ligne "export LD_LIBRARY_PATH="
