@@ -4,6 +4,7 @@ project (Risk)
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat.cpp)
+add_executable(Test divers/Test.cpp)
 # SFML
 set(SFML_ROOT "/usr/lsa")
 set(CMAKE_MODULE_PATH "${SFML_ROOT}/share/SFML/cmake/Modules"
@@ -12,6 +13,7 @@ find_package(SFML 2 COMPONENTS graphics window system)
 if(SFML_FOUND)
    include_directories(${SFML_INCLUDE_DIR})
    target_link_libraries(Main ${SFML_LIBRARIES})
+   target_link_libraries(Test ${SFML_LIBRARIES})
 endif()
 
 #pour caque terminal, copier la ligne "export LD_LIBRARY_PATH="
