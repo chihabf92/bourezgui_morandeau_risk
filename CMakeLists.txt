@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 2.6)
 project (Risk)
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
-add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat.cpp)
+add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp)
 add_executable(Test divers/Test.cpp)
 # SFML
 set(SFML_ROOT "/usr/lsa")
