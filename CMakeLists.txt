@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 #nom du projet
 project (Risk)
+
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp)
@@ -15,5 +16,11 @@ if(SFML_FOUND)
    target_link_libraries(Main ${SFML_LIBRARIES})
    target_link_libraries(Test ${SFML_LIBRARIES})
 endif()
+
+#mettre en c++11
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_CXX_FLAGS "-std=c++11")
 
 #pour caque terminal, copier la ligne "export LD_LIBRARY_PATH="

@@ -7,10 +7,10 @@
 class Frontiere
 {
 	public :
-		Territoire* pays1;
-		Territoire* pays2;
-		int type;
-		Frontiere();
+		Territoire& pays1;
+		Territoire& pays2;
+		int type = 0;
+		Frontiere(Territoire &a, Territoire &b);
 		~Frontiere();
 };
 

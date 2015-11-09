@@ -1,11 +1,10 @@
 #include "Frontiere.hpp"
 #include "Territoire.hpp"
 
-Frontiere::Frontiere()
+
+Frontiere::Frontiere(Territoire &a, Territoire &b) : pays1(a),pays2(b)
 {
-	pays1=NULL;
-	pays2=NULL;
-	type=0;
+
 }
 Frontiere::~Frontiere()
 {

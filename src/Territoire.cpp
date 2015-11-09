@@ -4,8 +4,18 @@ Territoire::Territoire()
 {
 	nom=0;
 	couleur=0;
-	nombre_pion=0;
-	continent=0;	
+	nombre_pion=0;	
+	continent=0;
+
+	
+}
+Territoire::Territoire(int a, int b, int c, int d, int e)
+{
+	nom=a;
+	couleur=b;
+	nombre_pion=c;
+	continent=d;
+	position=e;
 }
 
 Territoire::~Territoire()
@@ -42,4 +52,8 @@ void Territoire::set_continent(int a)
 int Territoire::get_continent()
 {
 	return continent;
+}
+int Territoire::get_position()
+{
+	return position;
 }
