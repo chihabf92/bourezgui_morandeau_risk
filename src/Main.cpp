@@ -45,41 +45,41 @@ int main()
     Territoire Amerique_Nord_4(4,joueur_3.get_couleur(),0,1,219); //USA Bas
 
     Territoire Amerique_Sud_1(5,joueur_1.get_couleur(),0,2,331);  //Haut
-    /*Territoire Amerique_Sud_2(6,2,0,2);  //Gauche 
-    Territoire Amerique_Sud_3(7,3,0,2);  //Droit
-    Territoire Amerique_Sud_4(8,1,0,2);  //Bas
+    Territoire Amerique_Sud_2(6,joueur_2.get_couleur(),0,2,403);  //Gauche 
+    Territoire Amerique_Sud_3(7,joueur_3.get_couleur(),0,2,405);  //Droit
+    Territoire Amerique_Sud_4(8,joueur_1.get_couleur(),0,2,511);  //Bas
 
-    Territoire Europe_1(9,3,0,3); //France
-    Territoire Europe_2(10,2,0,3); //Allemagne->Italie
-    Territoire Europe_3(11,3,0,3); //Scandinavie
-    Territoire Europe_4(12,1,0,3); //Debut Russie
-    Territoire Europe_5(13,2,0,3); //Debut Moyen Orient
+    Territoire Europe_1(9,joueur_3.get_couleur(),0,3,158); //France
+    Territoire Europe_2(10,joueur_2.get_couleur(),0,3,124); //Allemagne->Italie
+    Territoire Europe_3(11,joueur_3.get_couleur(),0,3,89); //Scandinavie
+    Territoire Europe_4(12,joueur_1.get_couleur(),0,3,91); //Debut Russie
+    Territoire Europe_5(13,joueur_2.get_couleur(),0,3,162); //Debut Moyen Orient
 
-    Territoire Asie_1(14,2,0,4); //Russie Gauche 
-    Territoire Asie_2(15,3,0,4); //Sibérie 
-    Territoire Asie_3(16,1,0,4); //Chine Nord Droit
-    Territoire Asie_4(17,3,0,4); //Arabie Saoudite
-    Territoire Asie_5(18,2,0,4); //Iran
-    Territoire Asie_6(19,3,0,4); //Inde
-    Territoire Asie_7(20,2,0,4); //Chine Sud Centre
-    Territoire Asie_8(21,1,0,4); //Chine Sud Droit
+    Territoire Asie_1(14,joueur_2.get_couleur(),0,4,93); //Russie Gauche 
+    Territoire Asie_2(15,joueur_3.get_couleur(),0,4,95); //Sibérie ur
+    Territoire Asie_3(16,joueur_1.get_couleur(),0,4,98); //Chine Nord Droit
+    Territoire Asie_4(17,joueur_3.get_couleur(),0,4,235); //Arabie Saoudite
+    Territoire Asie_5(18,joueur_2.get_couleur(),0,4,200); //Iran
+    Territoire Asie_6(19,joueur_3.get_couleur(),0,4,202); //Inde
+    Territoire Asie_7(20,joueur_2.get_couleur(),0,4,204); //Chine Sud Centre
+    Territoire Asie_8(21,joueur_1.get_couleur(),0,4,206); //Chine Sud Droit
 
-    Territoire Afrique_1(22,3,0,5); //Maroc
-    Territoire Afrique_2(23,1,0,5); //Algerie
-    Territoire Afrique_3(24,2,0,5); //Egypte->Syrie
-    Territoire Afrique_4(25,2,0,5); //Afrique Centrale
-    Territoire Afrique_5(26,1,0,5); //Afrique Centrale Gauche
-    Territoire Afrique_6(27,2,0,5); //Afrique Sud
+    Territoire Afrique_1(22,joueur_3.get_couleur(),0,5,265); //Maroc
+    Territoire Afrique_2(23,joueur_1.get_couleur(),0,5,230); //Algerie
+    Territoire Afrique_3(24,joueur_2.get_couleur(),0,5,233); //Egypte->Syrie
+    Territoire Afrique_4(25,joueur_2.get_couleur(),0,5,303); //Afrique Centrale
+    Territoire Afrique_5(26,joueur_1.get_couleur(),0,5,342); //Afrique Centrale Gauche
+    Territoire Afrique_6(27,joueur_3.get_couleur(),0,5,449); //Afrique Sud
     
-    Territoire Oceanie_1(28,3,0,6); //Australie Gauche
-    Territoire Oceanie_2(29,1,0,6); //Australie Droit*/
+    Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459); //Australie Gauche
+    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461); //Australie Droit*/
 
    // 1->Rouge
    // 2->Jaune
    // 3-> Vert 
 
     /*-----INITIALISATION FRONTIERE-----*/
-    /*Frontiere frontiere_1(Amerique_Nord_1, Amerique_Nord_2);
+    Frontiere frontiere_1(Amerique_Nord_1, Amerique_Nord_2);
     Frontiere frontiere_2(Amerique_Nord_1, Amerique_Nord_3);
     Frontiere frontiere_3(Amerique_Nord_2, Amerique_Nord_3);
     Frontiere frontiere_4(Amerique_Nord_2, Amerique_Nord_4);      
@@ -126,7 +126,7 @@ int main()
     Frontiere frontiere_42(Afrique_4, Afrique_5);  
 
     Frontiere frontiere_37(Afrique_4, Afrique_6);
-   Frontiere frontiere_39(Oceanie_1, Oceanie_2);*/
+   Frontiere frontiere_39(Oceanie_1, Oceanie_2);
 
     //std::vector<Territoire> territoires;
     //territoires.push_back(Territoire("Afrique",27,2,0,5));
@@ -161,12 +161,12 @@ int main()
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//24
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//25
     };
-            level[Amerique_Sud_1.get_position()]= joueur_3.get_couleur();
+            level[Oceanie_2.get_position()]= joueur_2.get_couleur();
 
     /*INITIALISATION ETAT DE JEU-----*/
 
     Etat_jeu map;
-    if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 36))
+    if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 25))
         return -1;
 
 

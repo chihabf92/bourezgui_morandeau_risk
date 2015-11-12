@@ -4,9 +4,9 @@ project (Risk)
 
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
-add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp)
+add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp src/Moteur_jeu.cpp)
 add_executable(Test divers/Test.cpp)
-# SFML
+# SFML 
 set(SFML_ROOT "/usr/lsa")
 set(CMAKE_MODULE_PATH "${SFML_ROOT}/share/SFML/cmake/Modules"
 ${CMAKE_MODULE_PATH})
