@@ -3,14 +3,26 @@
 #include <string>
 #include <SFML/Graphics.hpp> 
 #include <SFML/Window.hpp>
+#include <ctime>
 
 #include "Joueur.hpp"
 #include "Etat_jeu.hpp"
 #include "Territoire.hpp"
 #include "Frontiere.hpp"
+#include "Moteur_jeu.hpp"
+#include "Etat.hpp"
 
 using namespace sf;
 using namespace std;
+
+//int main()
+//{
+	//Etat etat;
+	//etat.Initialisation();
+	//etat.Affichage();
+	
+	//return -1;
+//}
 
 
 int main()
@@ -27,7 +39,7 @@ int main()
     sf::Sprite sprite;
     sprite.setTexture(arriere_plan);
 
-    /*-----INITIALISATION JOUEUR-----*/
+    //-----INITIALISATION JOUEUR-----
 
     Joueur joueur_1;
     Joueur joueur_2;
@@ -36,13 +48,20 @@ int main()
     joueur_1.set_couleur(1); //Rouge 
     joueur_2.set_couleur(2); //Jaune
     joueur_3.set_couleur(3); //Vert
+    
+    sf::Text text1;
+    sf::Text text2;
+	sf::Text text3;
+	sf::Text text4;
+	Moteur_jeu action;
+	
+	
+    //-----INITIALISATION TERRITOIRE----
 
-    /*-----INITIALISATION TERRITOIRE----*/
-
-    Territoire Amerique_Nord_1(1,joueur_2.get_couleur(),0,1,76); //Canada,
-    Territoire Amerique_Nord_2(2,joueur_1.get_couleur(),0,1,147); //USA gauche
-    Territoire Amerique_Nord_3(3,joueur_2.get_couleur(),0,1,150); //USA droite
-    Territoire Amerique_Nord_4(4,joueur_3.get_couleur(),0,1,219); //USA Bas
+    Territoire Amerique_Nord_1(1,joueur_2.get_couleur(),10,1,76); //Canada,
+    Territoire Amerique_Nord_2(2,joueur_1.get_couleur(),2,1,147); //USA gauche
+    Territoire Amerique_Nord_3(3,joueur_2.get_couleur(),5,1,150); //USA droite
+    Territoire Amerique_Nord_4(4,joueur_3.get_couleur(),5,1,219); //USA Bas
 
     Territoire Amerique_Sud_1(5,joueur_1.get_couleur(),0,2,331);  //Haut
     Territoire Amerique_Sud_2(6,joueur_2.get_couleur(),0,2,403);  //Gauche 
@@ -72,13 +91,13 @@ int main()
     Territoire Afrique_6(27,joueur_3.get_couleur(),0,5,449); //Afrique Sud
     
     Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459); //Australie Gauche
-    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461); //Australie Droit*/
+    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461); //Australie Droit
 
    // 1->Rouge
    // 2->Jaune
    // 3-> Vert 
 
-    /*-----INITIALISATION FRONTIERE-----*/
+    //-----INITIALISATION FRONTIERE-----
     Frontiere frontiere_1(Amerique_Nord_1, Amerique_Nord_2);
     Frontiere frontiere_2(Amerique_Nord_1, Amerique_Nord_3);
     Frontiere frontiere_3(Amerique_Nord_2, Amerique_Nord_3);
@@ -126,15 +145,26 @@ int main()
     Frontiere frontiere_42(Afrique_4, Afrique_5);  
 
     Frontiere frontiere_37(Afrique_4, Afrique_6);
-   Frontiere frontiere_39(Oceanie_1, Oceanie_2);
+	Frontiere frontiere_39(Oceanie_1, Oceanie_2);
 
+
+	//Initialisation des zones d'affichage des pions
+	
+	sf::Font font;
+	if(!font.loadFromFile("../res/arial.ttf"))
+	{	return -1;
+	}
+   
+	
     //std::vector<Territoire> territoires;
     //territoires.push_back(Territoire("Afrique",27,2,0,5));
+    
+    
 
 
 
     int level[] =
-    { /* 1 2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36                                                                                                          */      
+    { // 1 2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36                                                                                                          */      
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//1
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//2
         0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 2, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,//3
@@ -163,40 +193,109 @@ int main()
     };
             level[Oceanie_2.get_position()]= joueur_2.get_couleur();
 
-    /*INITIALISATION ETAT DE JEU-----*/
+    //INITIALISATION ETAT DE JEU-----
 
     Etat_jeu map;
-    if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 25))
-        return -1;
 
 
-   
     // on fait tourner le programme tant que la fenêtre n'a pas été fermée
     while (window.isOpen())
     {
+
         // on traite tous les évènements de la fenêtre qui ont été générés depuis la dernière itération de la boucle
         sf::Event event;
+        
         while (window.pollEvent(event))
-        {
-            // fermeture de la fenêtre lorsque l'utilisateur le souhaite
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+		{
+		// on regarde le type de l'évènement...
+			switch (event.type)
+			{
+			// fenêtre fermée
+				case sf::Event::Closed:
+					window.close();
+					break;
 
+			// touche pressée (commandes d'action)
+				case sf::Event::KeyPressed:
+					if(event.key.code == sf::Keyboard::Up)
+					{
+						action.DeplacerXPionsDeAversB(&joueur_2, &Amerique_Nord_1, &Amerique_Nord_3, 2);
+					}
+					else if(event.key.code == sf::Keyboard::Down)
+					{
+						action.AttaquerBavecXpionsDeA(&joueur_2, &Amerique_Nord_1, &Amerique_Nord_2, 2);
+						level[Amerique_Nord_1.get_position()]=Amerique_Nord_1.get_couleur();
+						cout<<"Couleur de AmN2: "<<Amerique_Nord_2.couleur<<endl;
+						level[Amerique_Nord_2.get_position()]=Amerique_Nord_2.couleur;
+					}
+					else if(event.key.code == sf::Keyboard::Escape)
+					{
+						action.AjouterXpions(&joueur_2, &Amerique_Nord_1, 2);
+					}
+					break;
+				
+			// on ne traite pas les autres types d'évènements
+				default:
+					break;
+			}
+		}
+		
+		//Création de la fenêtre du plan avec les pions
+		if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 25))
+        {
+			return -1;
+		}
+       
         // effacement de la fenêtre en noir
         window.clear(sf::Color::Black);
-
-        // c'est ici qu'on dessine tout
+    
+        
+        //Amerique_Nord_1
+		std::string s1 = std::to_string(Amerique_Nord_1.nombre_pion);
+		text1.setFont(font);
+		text1.setString(s1);
+		text1.setCharacterSize(18);
+		text1.setColor(sf::Color::Black);
+		text1.setPosition(96,64);
+	
+		//Amerique_Nord_2
+		std::string s2 = std::to_string(Amerique_Nord_2.nombre_pion);
+		text2.setFont(font);
+		text2.setString(s2);
+		text2.setCharacterSize(18);
+		text2.setColor(sf::Color::Black);
+		text2.setPosition(75,145);
+	
+		//Amerique_Nord_3
+		std::string s3 = std::to_string(Amerique_Nord_3.nombre_pion);
+		text3.setFont(font);
+		text3.setString(s3);
+		text3.setCharacterSize(18);
+		text3.setColor(sf::Color::Black);
+		text3.setPosition(170,145);
+	
+		//Amerique_Nord_4
+		std::string s4 = std::to_string(Amerique_Nord_4.nombre_pion);
+		text4.setFont(font);
+		text4.setString(s4);
+		text4.setCharacterSize(18);
+		text4.setColor(sf::Color::Black);
+		text4.setPosition(112,224);
+		
+		// c'est ici qu'on dessine tout
         // On dessine l'arrière plan
         window.draw(sprite);
         window.draw(map);
-
+        window.draw(text1);
+		window.draw(text2);
+		window.draw(text3);
+		window.draw(text4);
+		
         //TileMap map;
          window.display();
-
-
 
     }
 
     return 0;
 }
+
