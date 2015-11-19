@@ -83,7 +83,7 @@ int main()
     Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),0,2,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
     pays[7]=&Amerique_Sud_4;
 
-    /*Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1",0,0,9,30,30,30,30,30); //France
+    Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1",0,0,9,30,30,30,30,30); //France
     pays[8]=&Europe_1;
     Territoire Europe_2(9,joueur_2.get_couleur(),0,3,124,"Europe_2",0,0,8,10,12,30,30,30); //Allemagne->Italie
     pays[9]=&Europe_2;
@@ -119,16 +119,16 @@ int main()
     pays[23]=&Afrique_3;
     Territoire Afrique_4(24,joueur_2.get_couleur(),0,5,303,"Afrique_4",515,300,21,22,23,25,26,30); //Afrique Centrale
     pays[24]=&Afrique_4;
-    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260,23,24,26); //Afrique Centrale Gauche
+    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260,23,24,26,30,30,30); //Afrique Centrale Gauche
     pays[25]=&Afrique_5;
-    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370,24,26); //Afrique Sud
+    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370,24,26,30,30,30,30); //Afrique Sud
     pays[26]=&Afrique_6;
     
     Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459,"Oceanie_1",0,0,29,30,30,30,30,30); //Australie Gauche
     pays[27]=&Oceanie_1;
     Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461,"Oceanie_2",0,0,28,30,30,30,30,30); //Australie Droit
     pays[28]=&Oceanie_2;
-
+/*
 
    // 1->Rouge
    // 2->Jaune
