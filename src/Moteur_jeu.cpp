@@ -17,23 +17,15 @@ Moteur_jeu::~Moteur_jeu()
 
 }
 
-void Moteur_jeu::AjouterXpions(Joueur* j, Territoire* a, int x)
+void Moteur_jeu::AjouterXpions(Joueur j, Territoire* a, int x)
 {
-	if (j->couleur!=a->couleur)
-		{
-		cout<<"Déplacement impossible : le territoire de départ n'appartient pas au joueur"<<endl;
-		return;
-		}
-	else
-	{
 		a->nombre_pion=a->nombre_pion+x;
-	}
 }
 
-void Moteur_jeu::DeplacerXPionsDeAversB(Joueur* j, Territoire* a, Territoire* b, int x)
+void Moteur_jeu::DeplacerXPionsDeAversB(Joueur j, Territoire* a, Territoire* b, int x)
 {
 	//on vérifie que le déplacement est possible
-	if (j->couleur!=a->couleur)
+	if (j.couleur!=a->couleur)
 		{
 		cout<<"Déplacement impossible : le territoire de départ n'appartient pas au joueur"<<endl;
 		return;
@@ -61,7 +53,7 @@ void Moteur_jeu::DeplacerXPionsDeAversB(Joueur* j, Territoire* a, Territoire* b,
 		}
 }
 
-void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur* j, Territoire* a, Territoire* b, int x)
+void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, int x)
 {
 	/*---------------veriier que l'attaque  est possible---------------*/
 	if(a->couleur==b->couleur)
@@ -79,7 +71,7 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur* j, Territoire* a, Territoire* b,
 		cout<<"Attaque impossible : il n'y a pas assez de pions disponible pour attaquer"<<endl;
 		return;
 	}	
-	else if (j->couleur!=a->couleur)
+	else if (j.couleur!=a->couleur)
 	{
 		cout<<"Attaque impossible : le territoire de départ n'appartient pas au joueur"<<endl;
 		return;
@@ -252,7 +244,7 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur* j, Territoire* a, Territoire* b,
 		if(b->nombre_pion<=perteB)
 		{
 			a->nombre_pion=a->nombre_pion-x;
-			b->couleur=j->couleur;
+			b->couleur=j.couleur;
 			b->nombre_pion=x-perteA;
 			cout<<"Vous venez d'obtenir ce territoire"<<endl;
 			return;

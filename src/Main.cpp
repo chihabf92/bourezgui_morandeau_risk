@@ -10,19 +10,11 @@
 #include "Territoire.hpp"
 #include "Frontiere.hpp"
 #include "Moteur_jeu.hpp"
+#include "Ia.hpp"
 
 
 using namespace sf;
 using namespace std;
-
-//int main()
-//{
-	//Etat etat;
-	//etat.Initialisation();
-	//etat.Affichage();
-	
-	//return -1;
-//}
 
 
 int main()
@@ -51,84 +43,93 @@ int main()
     joueur_3.set_couleur(3); //Vert
 
     
-    sf::Text text1;
-    sf::Text text2;
-	sf::Text text3;
-	sf::Text text4;
+    //Initialisation
 	Moteur_jeu action;
-    Territoire* pays[29];
+    Territoire pays[8];
     string s[29];
     Text text[29];
     int i;
+	Joueur j;
+	int pionSupplementaire;
+	int pionDeplacement;
+	int pionAttaque;
+	int hasard;
+	Ia ia;
+	Territoire a;
+	Territoire b;
+	j=joueur_2;
+	pionSupplementaire=2;
+	int z;
+
 	
 	
     //-----INITIALISATION TERRITOIRE----
 
     Territoire Amerique_Nord_1(0,joueur_2.get_couleur(),10,1,76,"Amerique_Nord_1",96,64,1,2,30,30,30,30); //Canada,
-    pays[0]=&Amerique_Nord_1;
-    Territoire Amerique_Nord_2(1,joueur_1.get_couleur(),2,1,147,"Amerique_Nord_2",75,145,0,2,3,30,30,30); //USA gauche
-    pays[1]=&Amerique_Nord_2;
-    Territoire Amerique_Nord_3(2,joueur_2.get_couleur(),5,1,150,"Amerique_Nord_3",170,145,0,1,3,30,30,30); //USA droite
-    pays[2]=&Amerique_Nord_3;
-    Territoire Amerique_Nord_4(3,joueur_3.get_couleur(),5,1,219,"Amerique_Nord_4",112,224,1,2,4,30,30,30); //USA Bas
-    pays[3]=&Amerique_Nord_4;
+    pays[0]=Amerique_Nord_1;
+    Territoire Amerique_Nord_2(1,joueur_1.get_couleur(),10,1,147,"Amerique_Nord_2",75,145,0,2,3,30,30,30); //USA gauche
+    pays[1]=Amerique_Nord_2;
+    Territoire Amerique_Nord_3(2,joueur_2.get_couleur(),10,1,150,"Amerique_Nord_3",170,145,0,1,3,30,30,30); //USA droite
+    pays[2]=Amerique_Nord_3;
+    Territoire Amerique_Nord_4(3,joueur_3.get_couleur(),10,1,219,"Amerique_Nord_4",112,224,1,2,4,30,30,30); //USA Bas
+    pays[3]=Amerique_Nord_4;
 
 
-    Territoire Amerique_Sud_1(4,joueur_1.get_couleur(),0,2,331,"Amerique_Sud_1",205,288,3,5,6,30,30,30);  //Haut
-    pays[4]=&Amerique_Sud_1;
-    Territoire Amerique_Sud_2(5,joueur_2.get_couleur(),0,2,403,"Amerique_Sud_2",205,330,4,6,7,30,30,30);  //Gauche 
-    pays[5]=&Amerique_Sud_2;
-    Territoire Amerique_Sud_3(6,joueur_3.get_couleur(),0,2,405,"Amerique_Sud_3",280,330,4,5,7,30,30,30);  //Droit
-    pays[6]=&Amerique_Sud_3;
-    Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),0,2,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
-    pays[7]=&Amerique_Sud_4;
+    Territoire Amerique_Sud_1(4,joueur_1.get_couleur(),10,10,331,"Amerique_Sud_1",205,288,3,5,6,30,30,30);  //Haut
+    pays[4]=Amerique_Sud_1;
+    Territoire Amerique_Sud_2(5,joueur_2.get_couleur(),10,10,403,"Amerique_Sud_2",205,330,4,6,7,30,30,30);  //Gauche 
+    pays[5]=Amerique_Sud_2;
+    Territoire Amerique_Sud_3(6,joueur_3.get_couleur(),10,10,405,"Amerique_Sud_3",280,330,4,5,7,30,30,30);  //Droit
+    pays[6]=Amerique_Sud_3;
+    Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),10,10,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
+    pays[7]=Amerique_Sud_4;
 
-    Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1",0,0,9,30,30,30,30,30); //France
+    /*Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1"); //France
     pays[8]=&Europe_1;
-    Territoire Europe_2(9,joueur_2.get_couleur(),0,3,124,"Europe_2",0,0,8,10,12,30,30,30); //Allemagne->Italie
+    Territoire Europe_2(9,joueur_2.get_couleur(),0,3,124,"Europe_2"); //Allemagne->Italie
     pays[9]=&Europe_2;
-    Territoire Europe_3(10,joueur_3.get_couleur(),0,3,89,"Europe_3",0,0,9,11,12,30,30,30); //Scandinavie
+    Territoire Europe_3(10,joueur_3.get_couleur(),0,3,89,"Europe_3"); //Scandinavie
     pays[10]=&Europe_3;
-    Territoire Europe_4(11,joueur_1.get_couleur(),0,3,91,"Europe_4",0,0,13,11,12,30,30,30); //Debut Russie
+    Territoire Europe_4(11,joueur_1.get_couleur(),0,3,91,"Europe_4"); //Debut Russie
     pays[11]=&Europe_4;
-    Territoire Europe_5(12,joueur_2.get_couleur(),0,3,162,"Europe_5",0,0,10,11,16,30,30,30); //Debut Moyen Orient
+    Territoire Europe_5(12,joueur_2.get_couleur(),0,3,162,"Europe_5"); //Debut Moyen Orient
     pays[12]=&Europe_5;
 
-    Territoire Asie_1(13,joueur_2.get_couleur(),0,4,93,"Asie_1",0,0,11,14,16,17,18,30); //Russie Gauche 
+    Territoire Asie_1(13,joueur_2.get_couleur(),0,4,93,"Asie_1"); //Russie Gauche 
     pays[13]=&Asie_1;
-    Territoire Asie_2(14,joueur_3.get_couleur(),0,4,95,"Asie_2",0,0,13,15,18,19,30,30); //Sibérie ur
+    Territoire Asie_2(14,joueur_3.get_couleur(),0,4,95,"Asie_2"); //Sibérie ur
     pays[14]=&Asie_2;
-    Territoire Asie_3(15,joueur_1.get_couleur(),0,4,98,"Asie_3",0,0,14,19,20,30,30,30); //Chine Nord Droit
+    Territoire Asie_3(15,joueur_1.get_couleur(),0,4,98,"Asie_3"); //Chine Nord Droit
     pays[15]=&Asie_3;
-    Territoire Asie_4(16,joueur_3.get_couleur(),0,4,235,"Asie_4",0,0,23,12,13,17,30,30); //Arabie Saoudite
+    Territoire Asie_4(16,joueur_3.get_couleur(),0,4,235,"Asie_4"); //Arabie Saoudite
     pays[16]=&Asie_4;
-    Territoire Asie_5(17,joueur_2.get_couleur(),0,4,200,"Asie_5",0,0,13,16,18,30,30,30); //Iran
+    Territoire Asie_5(17,joueur_2.get_couleur(),0,4,200,"Asie_5"); //Iran
     pays[17]=&Asie_5;
-    Territoire Asie_6(18,joueur_3.get_couleur(),0,4,202,"Asie_6",0,0,13,14,17,19,30,30); //Inde
+    Territoire Asie_6(18,joueur_3.get_couleur(),0,4,202,"Asie_6"); //Inde
     pays[18]=&Asie_6;
-    Territoire Asie_7(19,joueur_2.get_couleur(),0,4,204,"Asie_7",0,0,14,15,18,20,30,30); //Chine Sud Centre
+    Territoire Asie_7(19,joueur_2.get_couleur(),0,4,204,"Asie_7"); //Chine Sud Centre
     pays[19]=&Asie_7;
-    Territoire Asie_8(20,joueur_1.get_couleur(),0,4,206,"Asie_8",0,0,15,19,30,30,30,30); //Chine Sud Droit
+    Territoire Asie_8(20,joueur_1.get_couleur(),0,4,206,"Asie_8"); //Chine Sud Droit
     pays[20]=&Asie_8;
 
-    Territoire Afrique_1(21,joueur_3.get_couleur(),0,5,265,"Afrique_1",416,256,22,24,30,30,30,30); //Maroc
+    Territoire Afrique_1(21,joueur_3.get_couleur(),0,5,265,"Afrique_1",416,256); //Maroc
     pays[21]=&Afrique_1;
-    Territoire Afrique_2(22,joueur_1.get_couleur(),0,5,230,"Afrique_2",460,220,21,23,24,30,30,30); //Algerie
+    Territoire Afrique_2(22,joueur_1.get_couleur(),0,5,230,"Afrique_2",460,220); //Algerie
     pays[22]=&Afrique_2;
-    Territoire Afrique_3(23,joueur_2.get_couleur(),0,5,233,"Afrique_3",560,220,22,24,25,16,30,30); //Egypte->Syrie
+    Territoire Afrique_3(23,joueur_2.get_couleur(),0,5,233,"Afrique_3",560,220); //Egypte->Syrie
     pays[23]=&Afrique_3;
-    Territoire Afrique_4(24,joueur_2.get_couleur(),0,5,303,"Afrique_4",515,300,21,22,23,25,26,30); //Afrique Centrale
+    Territoire Afrique_4(24,joueur_2.get_couleur(),0,5,303,"Afrique_4",515,300); //Afrique Centrale
     pays[24]=&Afrique_4;
-    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260,23,24,26,30,30,30); //Afrique Centrale Gauche
+    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260); //Afrique Centrale Gauche
     pays[25]=&Afrique_5;
-    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370,24,26,30,30,30,30); //Afrique Sud
+    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370); //Afrique Sud
     pays[26]=&Afrique_6;
     
-    Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459,"Oceanie_1",0,0,29,30,30,30,30,30); //Australie Gauche
+    Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459,"Oceanie_1"); //Australie Gauche
     pays[27]=&Oceanie_1;
-    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461,"Oceanie_2",0,0,28,30,30,30,30,30); //Australie Droit
+    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461,"Oceanie_2"); //Australie Droit
     pays[28]=&Oceanie_2;
-/*
+
 
    // 1->Rouge
    // 2->Jaune
@@ -193,14 +194,6 @@ int main()
 	if(!font.loadFromFile("../res/arial.ttf"))
 	{	return -1;
 	}
-   
-	
-    //std::vector<Territoire> territoires;
-    //territoires.push_back(Territoire("Afrique",27,2,0,5));
-    
-   /* for(int i=0;i<29;i++)
-        cout<<pays[i]->nom<<endl;*/
-
 
 
     int level[] =
@@ -231,7 +224,6 @@ int main()
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//24
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//25
     };
-            //level[Oceanie_2.get_position()]= joueur_2.get_couleur();
 
     //INITIALISATION ETAT DE JEU-----
 
@@ -259,24 +251,51 @@ int main()
 				case sf::Event::KeyPressed:
 					if(event.key.code == sf::Keyboard::Up)
 					{
-						action.DeplacerXPionsDeAversB(&joueur_2,pays[0], pays[2], 2);
+						//action.DeplacerXPionsDeAversB(joueur_2, pays[0], pays[2], 2);
 					}
 					else if(event.key.code == sf::Keyboard::Down)
 					{
-						action.AttaquerBavecXpionsDeA(&joueur_2, pays[0], pays[1], 2);
-						level[pays[0]->get_position()]=pays[0]->get_couleur();
-						cout<<"Couleur de AmN2: "<<pays[1]->couleur<<endl;
-						level[pays[1]->get_position()]=pays[1]->couleur;
+						//action.AttaquerBavecXpionsDeA(&joueur_2, &Amerique_Nord_1, &Amerique_Nord_2, 2);
+						//level[Amerique_Nord_1.get_position()]=Amerique_Nord_1.get_couleur();
+						//cout<<"Couleur de AmN2: "<<Amerique_Nord_2.couleur<<endl;
+						//level[Amerique_Nord_2.get_position()]=Amerique_Nord_2.couleur;
 					}
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
-						action.AjouterXpions(&joueur_2, pays[0], 2);
+						//action.AjouterXpions(&joueur_2, &Amerique_Nord_1, 2);
+					}
+					else if(event.key.code == sf::Keyboard::Right)
+					{
+						//Renforcement
+						cout<<"Nombre de pions AmN1 : "<<pays[0].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN2 : "<<pays[1].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN3 : "<<pays[2].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN4 : "<<pays[3].nombre_pion<<endl;
+						a=ia.ChoisirUnPaysAppartenant(j, a, pays);
+						action.AjouterXpions(j, &a, pionSupplementaire);
+						z=a.id;
+						pays[z].nombre_pion=a.nombre_pion;
+						cout<<"Territoire selectionné : "<<a.nom<<endl;
+						cout<<"Nombre de pions AmN1 : "<<pays[0].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN2 : "<<pays[1].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN3 : "<<pays[2].nombre_pion<<endl;
+						cout<<"Nombre de pions AmN4 : "<<pays[3].nombre_pion<<endl;
+				
+						//Déplacement
+						//ia.ChoisirDeuxVoisinsAppartenant(j, &a, &b, pays)				
+						//pionDeplacement=rand()%(a.nombre_pion-1) +1; //afin qu'il en reste au minimum 1 et qu'il ne puisse pas choisir plus de pion qu'il n'a le droit
+						//action.DeplacerXPionsDeAversB(j, &a, &b, pionDeplacement);
+				
+						//Attaque
+						//ia.ChoisirDeuxVoisinsAdverses(j, a, b, pays[29])
+						//pionAttaque=rand()%(a.nombre_pion-1) +1; //afin qu'il en reste au minimum 1 et qu'il ne puisse pas choisir plus de pion qu'il n'a le droit
+						//action.AttaquerBavecXpionsDeA(j, a, b, pionAttaque);
 					}
 					break;
-				
+			
 			// on ne traite pas les autres types d'évènements
-				default:
-					break;
+			default:
+				break;
 			}
 		}
 		
@@ -288,65 +307,28 @@ int main()
        
         // effacement de la fenêtre en noir
         window.clear(sf::Color::Black);
-    
-        
-/*        //Amerique_Nord_1
-		std::string s1 = std::to_string(pays[0]->nombre_pion);
-		text1.setFont(font);
-		text1.setString(s1);
-		text1.setCharacterSize(18);
-		text1.setColor(sf::Color::Black);
-		text1.setPosition(pays[0]->x,pays[0]->y);
-	
-		//Amerique_Nord_2
-		std::string s2 = std::to_string(pays[1]->nombre_pion);
-		text2.setFont(font);
-		text2.setString(s2);
-		text2.setCharacterSize(18);
-		text2.setColor(sf::Color::Black);
-		text2.setPosition(pays[1]->x,pays[1]->y);
-	
-		//Amerique_Nord_3
-		std::string s3 = std::to_string(pays[2]->nombre_pion);
-		text3.setFont(font);
-		text3.setString(s3);
-		text3.setCharacterSize(18);
-		text3.setColor(sf::Color::Black);
-		text3.setPosition(pays[2]->x,pays[2]->y);
-	
-		//Amerique_Nord_4
-		std::string s4 = std::to_string(pays[3]->nombre_pion);
-		text4.setFont(font);
-		text4.setString(s4);
-		text4.setCharacterSize(18);
-		text4.setColor(sf::Color::Black);
-		text4.setPosition(pays[3]->x,pays[3]->y);
-*/
-        for(i=0;i<4;i++)
+		
+        for(i=0;i<8;i++)
         {
-            s[i]=std::to_string(pays[i]->nombre_pion);
+            s[i]=std::to_string(pays[i].nombre_pion);
             text[i].setFont(font);
             text[i].setString(s[i]);
             text[i].setCharacterSize(18);
             text[i].setColor(sf::Color::Black);
-            text[i].setPosition(pays[i]->x,pays[i]->y);
+            text[i].setPosition(pays[i].x,pays[i].y);
 
         }
 		
 		// c'est ici qu'on dessine tout
-        // On dessine l'arrière plan
         window.draw(sprite);
-        window.draw(map);
-/*        window.draw(text1);
-		window.draw(text2);
-		window.draw(text3);
-		window.draw(text4);
-*/		
-        for(i=0;i<4;i++)
+        window.draw(map);		
+        
+        for(i=0;i<8;i++)
         {
             window.draw(text[i]);
         }
-        //TileMap map;
+
+
          window.display();
 
     }
