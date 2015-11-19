@@ -83,50 +83,50 @@ int main()
     Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),0,2,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
     pays[7]=&Amerique_Sud_4;
 
-    /*Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1"); //France
+    /*Territoire Europe_1(8,joueur_3.get_couleur(),0,3,158,"Europe_1",0,0,9,30,30,30,30,30); //France
     pays[8]=&Europe_1;
-    Territoire Europe_2(9,joueur_2.get_couleur(),0,3,124,"Europe_2"); //Allemagne->Italie
+    Territoire Europe_2(9,joueur_2.get_couleur(),0,3,124,"Europe_2",0,0,8,10,12,30,30,30); //Allemagne->Italie
     pays[9]=&Europe_2;
-    Territoire Europe_3(10,joueur_3.get_couleur(),0,3,89,"Europe_3"); //Scandinavie
+    Territoire Europe_3(10,joueur_3.get_couleur(),0,3,89,"Europe_3",0,0,9,11,12,30,30,30); //Scandinavie
     pays[10]=&Europe_3;
-    Territoire Europe_4(11,joueur_1.get_couleur(),0,3,91,"Europe_4"); //Debut Russie
+    Territoire Europe_4(11,joueur_1.get_couleur(),0,3,91,"Europe_4",0,0,13,11,12,30,30,30); //Debut Russie
     pays[11]=&Europe_4;
-    Territoire Europe_5(12,joueur_2.get_couleur(),0,3,162,"Europe_5"); //Debut Moyen Orient
+    Territoire Europe_5(12,joueur_2.get_couleur(),0,3,162,"Europe_5",0,0,10,11,16,30,30,30); //Debut Moyen Orient
     pays[12]=&Europe_5;
 
-    Territoire Asie_1(13,joueur_2.get_couleur(),0,4,93,"Asie_1"); //Russie Gauche 
+    Territoire Asie_1(13,joueur_2.get_couleur(),0,4,93,"Asie_1",0,0,11,14,16,17,18,30); //Russie Gauche 
     pays[13]=&Asie_1;
-    Territoire Asie_2(14,joueur_3.get_couleur(),0,4,95,"Asie_2"); //Sibérie ur
+    Territoire Asie_2(14,joueur_3.get_couleur(),0,4,95,"Asie_2",0,0,13,15,18,19,30,30); //Sibérie ur
     pays[14]=&Asie_2;
-    Territoire Asie_3(15,joueur_1.get_couleur(),0,4,98,"Asie_3"); //Chine Nord Droit
+    Territoire Asie_3(15,joueur_1.get_couleur(),0,4,98,"Asie_3",0,0,14,19,20,30,30,30); //Chine Nord Droit
     pays[15]=&Asie_3;
-    Territoire Asie_4(16,joueur_3.get_couleur(),0,4,235,"Asie_4"); //Arabie Saoudite
+    Territoire Asie_4(16,joueur_3.get_couleur(),0,4,235,"Asie_4",0,0,23,12,13,17,30,30); //Arabie Saoudite
     pays[16]=&Asie_4;
-    Territoire Asie_5(17,joueur_2.get_couleur(),0,4,200,"Asie_5"); //Iran
+    Territoire Asie_5(17,joueur_2.get_couleur(),0,4,200,"Asie_5",0,0,13,16,18,30,30,30); //Iran
     pays[17]=&Asie_5;
-    Territoire Asie_6(18,joueur_3.get_couleur(),0,4,202,"Asie_6"); //Inde
+    Territoire Asie_6(18,joueur_3.get_couleur(),0,4,202,"Asie_6",0,0,13,14,17,19,30,30); //Inde
     pays[18]=&Asie_6;
-    Territoire Asie_7(19,joueur_2.get_couleur(),0,4,204,"Asie_7"); //Chine Sud Centre
+    Territoire Asie_7(19,joueur_2.get_couleur(),0,4,204,"Asie_7",0,0,14,15,18,20,30,30); //Chine Sud Centre
     pays[19]=&Asie_7;
-    Territoire Asie_8(20,joueur_1.get_couleur(),0,4,206,"Asie_8"); //Chine Sud Droit
+    Territoire Asie_8(20,joueur_1.get_couleur(),0,4,206,"Asie_8",0,0,15,19,30,30,30,30); //Chine Sud Droit
     pays[20]=&Asie_8;
 
-    Territoire Afrique_1(21,joueur_3.get_couleur(),0,5,265,"Afrique_1",416,256); //Maroc
+    Territoire Afrique_1(21,joueur_3.get_couleur(),0,5,265,"Afrique_1",416,256,22,24,30,30,30,30); //Maroc
     pays[21]=&Afrique_1;
-    Territoire Afrique_2(22,joueur_1.get_couleur(),0,5,230,"Afrique_2",460,220); //Algerie
+    Territoire Afrique_2(22,joueur_1.get_couleur(),0,5,230,"Afrique_2",460,220,21,23,24,30,30,30); //Algerie
     pays[22]=&Afrique_2;
-    Territoire Afrique_3(23,joueur_2.get_couleur(),0,5,233,"Afrique_3",560,220); //Egypte->Syrie
+    Territoire Afrique_3(23,joueur_2.get_couleur(),0,5,233,"Afrique_3",560,220,22,24,25,16,30,30); //Egypte->Syrie
     pays[23]=&Afrique_3;
-    Territoire Afrique_4(24,joueur_2.get_couleur(),0,5,303,"Afrique_4",515,300); //Afrique Centrale
+    Territoire Afrique_4(24,joueur_2.get_couleur(),0,5,303,"Afrique_4",515,300,21,22,23,25,26,30); //Afrique Centrale
     pays[24]=&Afrique_4;
-    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260); //Afrique Centrale Gauche
+    Territoire Afrique_5(25,joueur_1.get_couleur(),0,5,342,"Afrique_5",570,260,23,24,26); //Afrique Centrale Gauche
     pays[25]=&Afrique_5;
-    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370); //Afrique Sud
+    Territoire Afrique_6(26,joueur_3.get_couleur(),0,5,449,"Afrique_6",570,370,24,26); //Afrique Sud
     pays[26]=&Afrique_6;
     
-    Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459,"Oceanie_1"); //Australie Gauche
+    Territoire Oceanie_1(28,joueur_3.get_couleur(),0,6,459,"Oceanie_1",0,0,29,30,30,30,30,30); //Australie Gauche
     pays[27]=&Oceanie_1;
-    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461,"Oceanie_2"); //Australie Droit
+    Territoire Oceanie_2(29,joueur_1.get_couleur(),0,6,461,"Oceanie_2",0,0,28,30,30,30,30,30); //Australie Droit
     pays[28]=&Oceanie_2;
 
 
@@ -263,14 +263,14 @@ int main()
 					}
 					else if(event.key.code == sf::Keyboard::Down)
 					{
-						//action.AttaquerBavecXpionsDeA(&joueur_2, &Amerique_Nord_1, &Amerique_Nord_2, 2);
-						//level[Amerique_Nord_1.get_position()]=Amerique_Nord_1.get_couleur();
-						//cout<<"Couleur de AmN2: "<<Amerique_Nord_2.couleur<<endl;
-						//level[Amerique_Nord_2.get_position()]=Amerique_Nord_2.couleur;
+						action.AttaquerBavecXpionsDeA(&joueur_2, pays[0], pays[1], 2);
+						level[pays[0]->get_position()]=pays[0]->get_couleur();
+						cout<<"Couleur de AmN2: "<<pays[1]->couleur<<endl;
+						level[pays[1]->get_position()]=pays[1]->couleur;
 					}
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
-						//action.AjouterXpions(&joueur_2, &Amerique_Nord_1, 2);
+						action.AjouterXpions(&joueur_2, pays[0], 2);
 					}
 					break;
 				
