@@ -16,7 +16,7 @@ void Ia::SeRenforcer(Joueur& j, Territoire *pays, int pion)
 	int hasard;
 	do
 	{
-		hasard=rand()%8;	//Choix d'un pays au hasard parmis les 8 pays d'Amerique
+		hasard=rand()%29;	//Choix d'un pays au hasard parmis les 29 pays d'Amerique
 	}while(pays[hasard].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
 	action.AjouterXpions(j, &pays[hasard], pion);	//ajout des pions à ce pays
 	cout<<"Le joueur "<<j.couleur<<" a ajouté "<<pion<<" pions au territoire "<<pays[hasard].nom<<endl;
@@ -39,7 +39,7 @@ void Ia::SeDeplacer(Joueur& j, Territoire* pays)
 		//Choix d'un pays nous appartenant	
 		do
 		{
-			indice1=rand()%29;	//Choix d'un pays au hasard parmis les 8 pays d'Amerique
+			indice1=rand()%29;	//Choix d'un pays au hasard parmis les 29 pays du monde
 		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
 		
 		//Choix d'un pays voisin nous appartenant
@@ -62,7 +62,7 @@ void Ia::SeDeplacer(Joueur& j, Territoire* pays)
 	}while(pays[indice1].couleur!=pays[indice2].couleur); //on vérifie qu'on est sorti car on avait un voisin et non pas à cause du count
 	
 	//Détermination du nombre de pions à déplacer
-	x=rand()%(pays[indice1].nombre_pion-1); //car il doit au moins rester un pion sur le territoire
+	x=rand()%(pays[indice1].nombre_pion-2)+1; //car il doit au moins rester un pion sur le territoire
 	cout<<"Le joueur "<<j.couleur<<" a déplacé "<<x<<" pions du territoire "<<pays[indice1].nom<<" vers le territoire "<<pays[indice2].nom<<endl;
 	
 	//Déplacement des pions
@@ -89,7 +89,7 @@ void Ia::Attaquer(Joueur& j, Territoire* pays)
 			indice1=rand()%29;	//Choix d'un pays au hasard parmis les 8 pays d'Amerique
 		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
 		
-		//Choix d'un pays voisin nous appartenant
+		//Choix d'un pays voisin ne nous appartenant pas
 		//copie du tableau des voisins de a
 		for(i=0;i<6;i++)
 		{

@@ -170,7 +170,7 @@ int main()
     //INITIALISATION ETAT DE JEU-----
 
     Etat_jeu map;
-
+	sf::Vector2i localPosition;
 
     // on fait tourner le programme tant que la fenêtre n'a pas été fermée
     while (window.isOpen())
@@ -199,6 +199,12 @@ int main()
 					{
 
 					}
+					else if (event.key.code == sf::Mouse::Left)
+					{
+						//if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						localPosition = sf::Mouse::getPosition(window);
+						cout<<"Position de la souris :"<<localPosition.x<<","<<localPosition.y<<endl;
+					}
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
 
@@ -223,6 +229,17 @@ int main()
 			default:
 				break;
 			}
+		}
+		
+		
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			localPosition = sf::Mouse::getPosition(window);
+			//i=localPosition&left;
+			//j=localPosition&right;
+			cout<<"Position de la souris :"<<localPosition.x<<","<<localPosition.y<<endl;
+			
+			//cout<<"BLOU"<<endl;
 		}
 		
 		//Création de la fenêtre du plan avec les pions
