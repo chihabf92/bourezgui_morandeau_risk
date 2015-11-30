@@ -49,7 +49,7 @@ int main()
     string s[29];
     Text text[29];
     int i;
-	Joueur j;
+	Joueur* j=&joueur_2;
 	int pionSupplementaire;
 	int pionDeplacement;
 	int pionAttaque;
@@ -57,7 +57,6 @@ int main()
 	Ia ia;
 	Territoire a;
 	Territoire b;
-	j=joueur_2;
 	pionSupplementaire=2;
 	int z;
 
@@ -84,7 +83,11 @@ int main()
     Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),10,10,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
     pays[7]=Amerique_Sud_4;
 
+<<<<<<< HEAD
     Territoire Europe_1(8,joueur_3.get_couleur(),10,3,158,"Europe_1",420,140,9,30,30,30,30,30); //France
+=======
+	Territoire Europe_1(8,joueur_3.get_couleur(),10,3,158,"Europe_1",420,140,9,30,30,30,30,30); //France
+>>>>>>> 9b812bc8b328649a4a2c0532e7dd4e401c13ccef
     pays[8]=Europe_1;
     Territoire Europe_2(9,joueur_2.get_couleur(),10,3,124,"Europe_2",510,130,8,10,12,30,30,30); //Allemagne->Italie
     pays[9]=Europe_2;
@@ -129,6 +132,7 @@ int main()
     pays[27]=Oceanie_1;
     Territoire Oceanie_2(29,joueur_1.get_couleur(),10,6,461,"Oceanie_2",955,390,28,30,30,30,30,30); //Australie Droit
     pays[28]=Oceanie_2;
+<<<<<<< HEAD
 
 
    // 1->Rouge
@@ -136,6 +140,8 @@ int main()
    // 3-> Vert 
 
     //-----INITIALISATION FRONTIERE-----
+=======
+>>>>>>> 9b812bc8b328649a4a2c0532e7dd4e401c13ccef
 
 
 	//Initialisation des zones d'affichage des pions
@@ -201,45 +207,29 @@ int main()
 				case sf::Event::KeyPressed:
 					if(event.key.code == sf::Keyboard::Up)
 					{
-						//action.DeplacerXPionsDeAversB(joueur_2, pays[0], pays[2], 2);
+
 					}
 					else if(event.key.code == sf::Keyboard::Down)
 					{
-						//action.AttaquerBavecXpionsDeA(&joueur_2, &Amerique_Nord_1, &Amerique_Nord_2, 2);
-						//level[Amerique_Nord_1.get_position()]=Amerique_Nord_1.get_couleur();
-						//cout<<"Couleur de AmN2: "<<Amerique_Nord_2.couleur<<endl;
-						//level[Amerique_Nord_2.get_position()]=Amerique_Nord_2.couleur;
+
 					}
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
-						//action.AjouterXpions(&joueur_2, &Amerique_Nord_1, 2);
+
 					}
 					else if(event.key.code == sf::Keyboard::Right)
 					{
-						//Renforcement
-						cout<<"Nombre de pions AmN1 : "<<pays[0].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN2 : "<<pays[1].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN3 : "<<pays[2].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN4 : "<<pays[3].nombre_pion<<endl;
-						a=ia.ChoisirUnPaysAppartenant(j, a, pays);
-						action.AjouterXpions(j, &a, pionSupplementaire);
-						z=a.id;
-						pays[z].nombre_pion=a.nombre_pion;
-						cout<<"Territoire selectionné : "<<a.nom<<endl;
-						cout<<"Nombre de pions AmN1 : "<<pays[0].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN2 : "<<pays[1].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN3 : "<<pays[2].nombre_pion<<endl;
-						cout<<"Nombre de pions AmN4 : "<<pays[3].nombre_pion<<endl;
-				
-						//Déplacement
-						//ia.ChoisirDeuxVoisinsAppartenant(j, &a, &b, pays)				
-						//pionDeplacement=rand()%(a.nombre_pion-1) +1; //afin qu'il en reste au minimum 1 et qu'il ne puisse pas choisir plus de pion qu'il n'a le droit
-						//action.DeplacerXPionsDeAversB(j, &a, &b, pionDeplacement);
-				
-						//Attaque
-						//ia.ChoisirDeuxVoisinsAdverses(j, a, b, pays[29])
-						//pionAttaque=rand()%(a.nombre_pion-1) +1; //afin qu'il en reste au minimum 1 et qu'il ne puisse pas choisir plus de pion qu'il n'a le droit
-						//action.AttaquerBavecXpionsDeA(j, a, b, pionAttaque);
+
+					}
+					else if(event.key.code == sf::Keyboard::Left)
+					{
+						//Tour complet d'un IA
+						ia.SeRenforcer(*j, pays, pionSupplementaire);
+						ia.SeDeplacer(*j, pays);
+						ia.Attaquer(*j, pays);
+						if(j==&joueur_2)
+							j=&joueur_3;
+						else j=&joueur_2;
 					}
 					break;
 			

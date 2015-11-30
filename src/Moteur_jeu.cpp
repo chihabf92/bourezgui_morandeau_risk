@@ -24,69 +24,68 @@ void Moteur_jeu::AjouterXpions(Joueur j, Territoire* a, int x)
 
 void Moteur_jeu::DeplacerXPionsDeAversB(Joueur j, Territoire* a, Territoire* b, int x)
 {
-	//on vérifie que le déplacement est possible
-	if (j.couleur!=a->couleur)
-		{
-		cout<<"Déplacement impossible : le territoire de départ n'appartient pas au joueur"<<endl;
-		return;
-		}
-	else if (a->couleur!=b->couleur)
-		{
-		cout<<"Déplacement impossible : les territoires appartiennent à 2 joueurs différents"<<endl;
-		return;
-		}
+	////on vérifie que le déplacement est possible
+	//if (j.couleur!=a->couleur)
+		//{
+		//cout<<"Déplacement impossible : le territoire de départ n'appartient pas au joueur"<<endl;
+		//return;
+		//}
+	//else if (a->couleur!=b->couleur)
+		//{
+		//cout<<"Déplacement impossible : les territoires appartiennent à 2 joueurs différents"<<endl;
+		//return;
+		//}
 	/*else if ()
-		{
-		cout<<"Déplacement impossible : les 2 territoires ne sont pas voisins"<<endl;
-		return;
-		}*/
-	else if (x>=a->nombre_pion)
-		{
-		cout<<"Déplacement impossible : vous n'avez pas assez de pions disponible à déplacer"<<endl;
-		return;
-		}
-	else 
-		{
+		//{
+		//cout<<"Déplacement impossible : les 2 territoires ne sont pas voisins"<<endl;
+		//return;
+		//}*/
+	//else if (x>=a->nombre_pion)
+		//{
+		//cout<<"Déplacement impossible : vous n'avez pas assez de pions disponible à déplacer"<<endl;
+		//return;
+		//}
+	//else 
+		//{
 		a->nombre_pion=a->nombre_pion-x;
 		b->nombre_pion=b->nombre_pion+x;
-		cout<<"Déplacement effectué"<<endl;
-		}
+		//}
 }
 
 void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, int x)
 {
-	/*---------------veriier que l'attaque  est possible---------------*/
-	if(a->couleur==b->couleur)
-	{
-		cout<<"Impossible: territoire deja concquis"<<endl;
-		return;
-	}
-	else if (x<1 || x>3)
-	{
-		cout<<"Attaque impossible : le nombre d'armée attaquant n'est pas valide, il doit être compris entre 1 et 3"<<endl;
-		return;
-	}
-	else if (x>a->nombre_pion-1)  //il doit toujours rester au moins 1 pion sur le territoire attaquant
-	{		
-		cout<<"Attaque impossible : il n'y a pas assez de pions disponible pour attaquer"<<endl;
-		return;
-	}	
-	else if (j.couleur!=a->couleur)
-	{
-		cout<<"Attaque impossible : le territoire de départ n'appartient pas au joueur"<<endl;
-		return;
-	}
-	/*else if (x>0)//frontiere ( a concevoir)
-	{
-		cout<<"Attaque impossible : les 2 territoires ne sont pas voisins"<<endl;
-		return;
-	}*/
-	else if (x>a->nombre_pion)
-	{
-		cout<<"Déplacement impossible : vous n'avez pas assez de pions disponible à déplacer"<<endl;
-		return;
-	}
-		/*---------------Action attaque---------------*/
+	///*---------------veriier que l'attaque  est possible---------------*/
+	//if(a->couleur==b->couleur)
+	//{
+		//cout<<"Impossible: territoire deja concquis"<<endl;
+		//return;
+	//}
+	//else if (x<1 || x>3)
+	//{
+		//cout<<"Attaque impossible : le nombre d'armée attaquant n'est pas valide, il doit être compris entre 1 et 3"<<endl;
+		//return;
+	//}
+	//else if (x>a->nombre_pion-1)  //il doit toujours rester au moins 1 pion sur le territoire attaquant
+	//{		
+		//cout<<"Attaque impossible : il n'y a pas assez de pions disponible pour attaquer"<<endl;
+		//return;
+	//}	
+	//else if (j.couleur!=a->couleur)
+	//{
+		//cout<<"Attaque impossible : le territoire de départ n'appartient pas au joueur"<<endl;
+		//return;
+	//}
+	///*else if (x>0)//frontiere ( a concevoir)
+	//{
+		//cout<<"Attaque impossible : les 2 territoires ne sont pas voisins"<<endl;
+		//return;
+	//}*/
+	//else if (x>a->nombre_pion)
+	//{
+		//cout<<"Déplacement impossible : vous n'avez pas assez de pions disponible à déplacer"<<endl;
+		//return;
+	//}
+		///*---------------Action attaque---------------*/
 		int scoreA[3];
 		int scoreB[3];
 		int i;
@@ -125,8 +124,9 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 					scoreB[i]=0;
 				}
 			}
-		cout<<"dés de a : "<<scoreA[0]<<", "<<scoreA[1]<<", "<<scoreA[2]<<endl;
-		cout<<"dés de b : "<<scoreB[0]<<", "<<scoreB[1]<<", "<<scoreB[2]<<endl;
+		cout<<"Le joueur "<<j.couleur<<" a attaque avec "<<x<<" pions le territoire "<<a->nom<<" à partir du territoire "<<b->nom<<endl;
+		cout<<"dés de "<<a->nom<<" : "<<scoreA[0]<<", "<<scoreA[1]<<", "<<scoreA[2]<<endl;
+		cout<<"dés de "<<b->nom<<" : "<<scoreB[0]<<", "<<scoreB[1]<<", "<<scoreB[2]<<endl;
 		
 		/*Tri des dés attaquant*/		
 		tampon1=scoreA[0];
@@ -222,8 +222,6 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 				scoreB[2]=tampon1;				
 			}
 		}
-		cout<<"dés de a triés: "<<scoreA[0]<<", "<<scoreA[1]<<", "<<scoreA[2]<<endl;
-		cout<<"dés de b triés: "<<scoreB[0]<<", "<<scoreB[1]<<", "<<scoreB[2]<<endl;
 		if (x<c)
 			{
 				c=x;
@@ -238,22 +236,21 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 				{
 					perteA=perteA+1;
 				}
-		}
-		cout<<"perte A: "<<perteA<<endl;
-		cout<<"perte B: "<<perteB<<endl;
+		}		
+		//Affichage résultat
+		cout<<"Résultat du combat : le territoire "<<a->nom<<" a perdu "<<perteA<<" pions et le territoire "<<b->nom<<" en a perdu "<<perteB<<endl;
 		if(b->nombre_pion<=perteB)
 		{
 			a->nombre_pion=a->nombre_pion-x;
 			b->couleur=j.couleur;
 			b->nombre_pion=x-perteA;
-			cout<<"Vous venez d'obtenir ce territoire"<<endl;
+			cout<<"Le territoire "<<b->nom<<" viens d'être conquis par le joueur "<<j.couleur<<" et y possède maintenat "<<b->nombre_pion<<" pions dessus."<<endl;
 			return;
 		}
 		else
 		{
 			a->nombre_pion=a->nombre_pion-perteA;
 			b->nombre_pion=b->nombre_pion-perteB;
-			cout<<"Fin du combat"<<endl;
 		}
 }
 
