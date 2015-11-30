@@ -49,7 +49,6 @@ void Moteur_jeu::DeplacerXPionsDeAversB(Joueur j, Territoire* a, Territoire* b, 
 		//{
 		a->nombre_pion=a->nombre_pion-x;
 		b->nombre_pion=b->nombre_pion+x;
-		cout<<"Déplacement effectué"<<endl;
 		//}
 }
 
