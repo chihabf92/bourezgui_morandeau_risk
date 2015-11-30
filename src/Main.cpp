@@ -18,7 +18,8 @@ using namespace std;
 
 
 int main()
-{
+{	
+	
 
     // création de la fenêtre
     sf::RenderWindow window(sf::VideoMode(1152, 1152), "risk");
@@ -41,7 +42,8 @@ int main()
     joueur_1.set_couleur(1); //Rouge 
     joueur_2.set_couleur(2); //Jaune
     joueur_3.set_couleur(3); //Vert
-
+	
+	
     
     //Initialisation
 	Moteur_jeu action;
@@ -59,6 +61,10 @@ int main()
 	Territoire b;
 	pionSupplementaire=2;
 	int z;
+	int curseur=0;
+	int tab[29][4];
+	bool tampon=false;
+	
 
 	
 	
@@ -129,14 +135,162 @@ int main()
     Territoire Oceanie_2(29,joueur_1.get_couleur(),10,6,461,"Oceanie_2",955,390,28,30,30,30,30,30); //Australie Droit
     pays[28]=Oceanie_2;
 
+	//Initialisation zone afichage des teritoires
+	
+	tab[0][0]=106;//x1					x1,y1	*------------*  x2,y1
+	tab[0][1]=198;//x2							|			 |	
+	tab[0][2]=55;//y1							|			 |
+	tab[0][3]=93;//y2					x1,y2	*------------*	x2,y2
 
+	tab[1][0]=87; //Amerique Nord 2
+	tab[1][1]=155;
+	tab[1][2]=106;
+	tab[1][3]=179;
+
+	tab[2][0]=162;//Amerique Nord 
+	tab[2][1]=226;
+	tab[2][2]=106;
+	tab[2][3]=179;	
+	
+	tab[3][0]=94; //Amerique Nord 4	
+	tab[3][1]=145;
+	tab[3][2]=191;
+	tab[3][3]=246;
+
+	tab[4][0]=199; //Amerique Sud 1
+	tab[4][1]=266;
+	tab[4][2]=271;
+	tab[4][3]=316;
+
+	tab[5][0]=207; //Amerique Sud 2	
+	tab[5][1]=251;
+	tab[5][2]=328;
+	tab[5][3]=431;
+	
+	tab[6][0]=262; // Amerique Sud 3
+	tab[6][1]=319;
+	tab[6][2]=328;
+	tab[6][3]=431;
+
+	tab[7][0]=226; //Amerique Sud 4
+	tab[7][1]=269;
+	tab[7][2]=448;
+	tab[7][3]=502;
+
+	tab[8][0]=0;
+	tab[8][1]=0;
+	tab[8][2]=0;
+	tab[8][3]=0;
+		
+	tab[9][0]=0;
+	tab[9][1]=0;
+	tab[9][2]=0;
+	tab[9][3]=0;
+
+	tab[10][0]=0;
+	tab[10][1]=0;
+	tab[10][2]=0;
+	tab[10][3]=0;
+
+	tab[11][0]=0;
+	tab[11][1]=0;
+	tab[11][2]=0;
+	tab[11][3]=0;
+	
+	tab[12][0]=0;
+	tab[12][1]=0;
+	tab[12][2]=0;
+	tab[12][3]=0;
+
+	tab[13][0]=0;
+	tab[13][1]=0;
+	tab[13][2]=0;
+	tab[13][3]=0;
+
+	tab[14][0]=0;
+	tab[14][1]=0;
+	tab[14][2]=0;
+	tab[14][3]=0;
+
+	tab[15][0]=0;
+	tab[15][1]=0;
+	tab[15][2]=0;
+	tab[15][3]=0;
+
+	tab[16][0]=0;
+	tab[16][1]=0;
+	tab[16][2]=0;
+	tab[16][3]=0;
+
+	tab[17][0]=0;
+	tab[17][1]=0;
+	tab[17][2]=0;
+	tab[17][3]=0;	
+	
+	tab[18][0]=0;
+	tab[18][1]=0;
+	tab[18][2]=0;
+	tab[18][3]=0;
+
+	tab[19][0]=0;
+	tab[19][1]=0;
+	tab[19][2]=0;
+	tab[19][3]=0;
+
+	tab[20][0]=0;
+	tab[20][1]=0;
+	tab[20][2]=0;
+	tab[20][3]=0;
+	
+	tab[21][0]=0;
+	tab[21][1]=0;
+	tab[21][2]=0;
+	tab[21][3]=0;
+
+	tab[22][0]=0;
+	tab[22][1]=0;
+	tab[22][2]=0;
+	tab[22][3]=0;
+
+	tab[23][0]=0;
+	tab[23][1]=0;
+	tab[23][2]=0;
+	tab[23][3]=0;
+		
+	tab[24][0]=0;
+	tab[24][1]=0;
+	tab[24][2]=0;
+	tab[24][3]=0;
+
+	tab[25][0]=0;
+	tab[25][1]=0;
+	tab[25][2]=0;
+	tab[25][3]=0;
+
+	tab[26][0]=0;
+	tab[26][1]=0;
+	tab[26][2]=0;
+	tab[26][3]=0;
+	
+	tab[27][0]=0;
+	tab[27][1]=0;
+	tab[27][2]=0;
+	tab[27][3]=0;
+
+	tab[28][0]=0;
+	tab[28][1]=0;
+	tab[28][2]=0;
+	tab[28][3]=0;
+
+
+	
 	//Initialisation des zones d'affichage des pions
 	
 	sf::Font font;
 	if(!font.loadFromFile("../res/arial.ttf"))
 	{	return -1;
 	}
-
+	
 
     int level[] =
     { // 1 2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36                                                                                                          */      
@@ -171,14 +325,15 @@ int main()
 
     Etat_jeu map;
 	sf::Vector2i localPosition;
-
+	
+	
     // on fait tourner le programme tant que la fenêtre n'a pas été fermée
     while (window.isOpen())
     {
-
+ 
         // on traite tous les évènements de la fenêtre qui ont été générés depuis la dernière itération de la boucle
         sf::Event event;
-        
+
         while (window.pollEvent(event))
 		{
 		// on regarde le type de l'évènement...
@@ -199,12 +354,7 @@ int main()
 					{
 
 					}
-					else if (event.key.code == sf::Mouse::Left)
-					{
-						//if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-						localPosition = sf::Mouse::getPosition(window);
-						cout<<"Position de la souris :"<<localPosition.x<<","<<localPosition.y<<endl;
-					}
+					
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
 
@@ -231,16 +381,33 @@ int main()
 			}
 		}
 		
-		
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			localPosition = sf::Mouse::getPosition(window);
-			//i=localPosition&left;
-			//j=localPosition&right;
-			cout<<"Position de la souris :"<<localPosition.x<<","<<localPosition.y<<endl;
-			
-			//cout<<"BLOU"<<endl;
-		}
+			if(curseur==0)
+			{	
+				i=0;
+				tampon=false;
+				while (tampon==false &&i<29)
+				{
+					if((localPosition.x>tab[i][0])&&(localPosition.x<tab[i][1])&&(localPosition.y>tab[i][2])&&(localPosition.y<tab[i][3]))
+					{
+						tampon=true;
+					} 	
+					i++;
+				}
+				i=i-1;
+				if(tampon==true)
+				{
+					cout<<"le pays choisis est"<<pays[i].nom<<endl;
+				}
+				else
+				{
+					cout<<"Aucun pays n'a été sélectionné"<<endl;
+				}	
+			}
+			curseur=1;	
+		}		 
 		
 		//Création de la fenêtre du plan avec les pions
 		if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 25))
@@ -273,9 +440,11 @@ int main()
 
 
          window.display();
-
+         
     }
-
+	
     return 0;
+   
+
 }
 
