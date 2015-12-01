@@ -86,7 +86,7 @@ void Ia::Attaquer(Joueur& j, Territoire* pays)
 		//Choix d'un pays nous appartenant	
 		do
 		{
-			indice1=rand()%29;	//Choix d'un pays au hasard parmis les 8 pays d'Amerique
+			indice1=rand()%29;	//Choix d'un pays au hasard 
 		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
 		
 		//Choix d'un pays voisin ne nous appartenant pas

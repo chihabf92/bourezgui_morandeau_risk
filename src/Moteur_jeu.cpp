@@ -254,3 +254,28 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 		}
 }
 
+int Moteur_jeu::VerificationSouris(int x, int y, int test[29][4])
+{
+	int i=0;
+	bool tampon=false;
+	while (tampon==false &&i<29) //test si la clique de la souris corrspond bien à un territoire
+	{
+		if((x>test[i][0])&&(x<test[i][1])&&(y>test[i][2])&&(y<test[i][3]))
+		{
+			tampon=true;
+		} 	
+		i++;
+	}
+
+	i=i-1;
+	if(tampon==true)	//renvoie le territoire en question
+	{
+		return i;
+	}
+	else
+	{
+		return 30;	//renvoie rien
+	}
+	
+	
+}
