@@ -17,8 +17,9 @@ IA_moyen::~IA_moyen()
 {
 }
 
-void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
+void IA_moyen::attaquer(Joueur& j, Territoire* pays)
 {	
+	Moteur_jeu action;
 	int Amerique=0;
 	int Asie=0;
 	int Europe=0;
@@ -27,6 +28,11 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 	int continent_a_concquerir=0;
 	int i;
 	int indice1;
+	int indice2;
+	int tab[6];
+	int hasard;
+	int count=0;
+	int x;	
 
 
 	for(i=0;i<29;i++)
@@ -58,20 +64,16 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 	}
 	if(Amerique==8)		//Verification que le pays ne soit pas complétement concquis
 	{
-		Amerique=-1;
-		
+		Amerique=-1;	
 	}	
-	
 	if(Asie==8)
 	{
 		Asie=-1;
-	}	
-		
+	}		
 	if(Europe==5)
 	{
 		Europe=-1;
 	}
-	
 	if(Afrique==6)
 	{
 		Afrique=-1;
@@ -80,9 +82,9 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 	{
 		Oceanie=-1; 	//Fin vérification
 
-	}		
-			
-			
+	}	
+	
+					
 	continent_a_concquerir=1;		//Selection du contient à conquérir en priorité
 	if(Europe>Amerique)
 	{
@@ -145,7 +147,6 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 					continent_a_concquerir=5;
 				}
 			}
-
 		}
 		else
 		{
@@ -156,7 +157,6 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 				{
 					continent_a_concquerir=5;
 				}
-	
 			}
 			else
 			{
@@ -166,49 +166,105 @@ void IA_moyen::attaquer(Territoire pays[29], Joueur& j)
 				}
 			}
 		}	
-	
 	}										//Fin sélection du contient à conquerir en priorité
 	
+	//cout<<"CONTinent a conquerir"<<continent_a_concquerir<<endl;
 	
-	if(continent_a_concquerir=1)								//Choix de l'attaquant en fonction du continent
+	
+	if(continent_a_concquerir==1)								//Choix du défenseur en fonction du continent
 	{
 		do
 		{
-			indice1=rand()%7;	//Choix d'un pays au hasard parmis l'amerique
-		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur	
-		
+			indice2=rand()%8;	//Choix d'un pays au hasard parmis l'amerique
+			
+		}while(pays[indice2].couleur==j.couleur);	//vérification que le pays appartient pas au joueur	
+	
 	}
-	if(continent_a_concquerir=2)
+	if(continent_a_concquerir==2)
 	{
 		do
 		{
-			indice1=((rand()%4)+8);	//Choix d'un pays au hasard parmis l'europe
-		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
+			indice2=((rand()%5)+8);	//Choix d'un pays au hasard parmis l'europe
+		}while(pays[indice2].couleur==j.couleur);	//vérification que le pays appartient pas au joueur
 	}
-	if(continent_a_concquerir=3)
+	if(continent_a_concquerir==3)
 	{
 		do
 		{
-			indice1=((rand()%7)+13);	//Choix d'un pays au hasard parmis l'asie
-		}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
+			indice2=((rand()%8)+13);	//Choix d'un pays au hasard parmis l'asie
+		}while(pays[indice2].couleur==j.couleur);	//vérification que le pays appartient pas au joueur
 	}
-	if(continent_a_concquerir=4)
+	if(continent_a_concquerir==4)
 	{
 	do
 	{
-		indice1=((rand()%5)+21);	//Choix d'un pays au hasard parmis l'afrique
-	}while(pays[indice1].couleur!=j.couleur);	//vérification que le pays appartient bien au joueur
+		indice2=((rand()%6)+21);	//Choix d'un pays au hasard parmis l'afrique
+	}while(pays[indice2].couleur==j.couleur);	//vérification que le pays appartient pas au joueur
 	}
-	if(continent_a_concquerir=5)
+	if(continent_a_concquerir==5)
 	{
-		indice1=27;
-		if(pays[indice1].couleur!=j.couleur)
+		indice2=27;
+		if(pays[indice2].couleur==j.couleur)
 		{
-			indice1=28;
+			indice2=28;
 		}
 	}
+	//cout<<"pays a conquerir"<<indice2<<endl;
+	
+	do
+	{
+		//Choix d'un pays voisin  nous appartenant 
+		//copie du tableau des voisins de a
+		for(i=0;i<6;i++)
+		{
+			tab[i]=pays[indice2].voisin[i];  
+		}
+		do
+		{	
+			do
+			{
+				hasard=rand()%6;	//choix de l'indice qu'on va regarder
+				indice1=tab[hasard]; //récupération de l'id d'un des pays voisins
+			}while(tab[hasard]==30);
+			
+			count=count+1;	//on incrémente un compteur afin de ne pas tourner indéfiniment si on n'a pas de voisins nous appartenant...
+		}while( pays[indice1].couleur==pays[indice2].couleur);	//on vérifie qu'ils appartiennent bien au même joueur ou qu'on ne tourne pas trop longtemps
+		count=0;	//on remet la compteur à 0 au cas où il faut retourner dans la boucle
+	}while(pays[indice1].couleur==pays[indice2].couleur); //on vérifie qu'on est sorti car on avait un voisin appartenant à l'IA et non pas à cause du count
+	//cout<<"pays avec lequel on attaque"<<indice1<<endl;
+	
+	//Détermination du nombre de pions pour l'attaque
+	x=rand()%(pays[indice1].nombre_pion-2)+1; //car il doit au moins rester un pion sur le territoire
+	
+	//Déplacement des pions
+	action.AttaquerBavecXpionsDeA(j, &pays[indice1], &pays[indice2], x);
+	
+	
 	
 	  
 }	
 	
-
+void IA_moyen::renforcer( Joueur& j,Territoire* pays, int pion)
+{
+	Moteur_jeu action;
+	int i;
+	int indice; //entier permerttant de sauvergarder l'indice du pays dans la première boucle for
+	int valeur=1000000000;//entier permettant de comparer le nombre de valeurs, initialisation  grande	
+	 /*Détermination du pays à renforcer*/
+	 
+	for(i=0;i<29; i++)
+	{
+		if (j.couleur==pays[i].couleur) //test si le pays appartient au au bon IA
+		{
+			if(pays[i].nombre_pion<valeur)//test si le territoire i a moins de pion que la valeur précedente.
+			{
+				indice=i;
+				valeur=pays[i].nombre_pion;
+			}	
+		}
+	} 
+	action.AjouterXpions(j, &pays[indice], pion);	//ajout des pions à ce pays
+	cout<<"Le joueur "<<j.couleur<<" a ajouté "<<pion<<" pions au territoire "<<pays[indice].nom<<endl;
+	
+	
+}

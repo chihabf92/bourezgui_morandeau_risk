@@ -58,6 +58,7 @@ int main()
 	int pionAttaque;
 	int hasard;
 	Ia ia;
+	IA_moyen ia_moyen;
 	Territoire a;
 	Territoire b;
 	pionSupplementaire=2;
@@ -77,7 +78,7 @@ int main()
     pays[1]=Amerique_Nord_2;
     Territoire Amerique_Nord_3(2,joueur_2.get_couleur(),10,1,150,"Amerique_Nord_3",170,145,0,1,3,30,30,30); //USA droite
     pays[2]=Amerique_Nord_3;
-    Territoire Amerique_Nord_4(3,joueur_3.get_couleur(),10,1,219,"Amerique_Nord_4",112,224,1,2,4,30,30,30); //USA Bas
+    Territoire Amerique_Nord_4(3,joueur_2.get_couleur(),10,1,219,"Amerique_Nord_4",112,224,1,2,4,30,30,30); //USA Bas
     pays[3]=Amerique_Nord_4;
 
 
@@ -301,7 +302,7 @@ int main()
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//4
         0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//5
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,//6
-        0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//7
+        0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//7
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//8
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//9
         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,//10
@@ -353,15 +354,23 @@ int main()
 					}
 					else if(event.key.code == sf::Keyboard::Down)
 					{
+						
 
 					}
 					
 					else if(event.key.code == sf::Keyboard::Escape)
 					{
+						
 
 					}
 					else if(event.key.code == sf::Keyboard::Right)
 					{
+						ia_moyen.renforcer(*j,pays,pionSupplementaire);
+						ia.SeDeplacer(*j, pays);
+						ia_moyen.attaquer(*j,pays);
+						if(j==&joueur_2)
+							j=&joueur_3;
+						else j=&joueur_2;
 
 					}
 					else if(event.key.code == sf::Keyboard::Left)
@@ -382,24 +391,24 @@ int main()
 			}
 		}
 		
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-		{
-			localPosition = sf::Mouse::getPosition(window);
+		//if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		//{
+			//localPosition = sf::Mouse::getPosition(window);
 			
-			if(curseur==0)
-			{	
-				mouse=action.VerificationSouris(localPosition.x, localPosition.y, tab);
-				if(mouse<30)
-				{
-					cout<<"le pays choisis est"<<pays[mouse].nom<<endl;
-				}
-				else
-				{
-					cout<<"Aucun pays n'a été sélectionné"<<endl;
-				}	
-			}
-			curseur=1;	
-		}		 
+			//if(curseur==0)
+			//{	
+				//mouse=action.VerificationSouris(localPosition.x, localPosition.y, tab);
+				//if(mouse<30)
+				//{
+					//cout<<"le pays choisis est"<<pays[mouse].nom<<endl;
+				//}
+				//else
+				//{
+					//cout<<"Aucun pays n'a été sélectionné"<<endl;
+				//}	
+			//}
+			//curseur=1;	
+		//}		 
 		
 		//Création de la fenêtre du plan avec les pions
 		if (!map.load("../res/Tileset.png", sf::Vector2u(32, 32), level, 36, 25))

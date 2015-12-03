@@ -18,7 +18,8 @@ class IA_moyen
 		
 		IA_moyen();
 		~IA_moyen();
-		void attaquer(Territoire pays[29], Joueur& j);
+		void attaquer(Joueur& j, Territoire* pays);
+		void renforcer(Joueur& j, Territoire* pays, int pion);
 };
 
 #endif
