@@ -2,6 +2,10 @@
 
 rm -rf build bin
 mkdir -p build bin
+
+# generation des headers
+#dia2code -d src2/ res2/Diagramma_class.dia 
+
 cd build
 cmake ..
 
