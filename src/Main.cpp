@@ -83,11 +83,7 @@ int main()
     Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),10,10,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
     pays[7]=Amerique_Sud_4;
 
-<<<<<<< HEAD
     Territoire Europe_1(8,joueur_3.get_couleur(),10,3,158,"Europe_1",420,140,9,30,30,30,30,30); //France
-=======
-	Territoire Europe_1(8,joueur_3.get_couleur(),10,3,158,"Europe_1",420,140,9,30,30,30,30,30); //France
->>>>>>> 9b812bc8b328649a4a2c0532e7dd4e401c13ccef
     pays[8]=Europe_1;
     Territoire Europe_2(9,joueur_2.get_couleur(),10,3,124,"Europe_2",510,130,8,10,12,30,30,30); //Allemagne->Italie
     pays[9]=Europe_2;
@@ -132,7 +128,6 @@ int main()
     pays[27]=Oceanie_1;
     Territoire Oceanie_2(29,joueur_1.get_couleur(),10,6,461,"Oceanie_2",955,390,28,30,30,30,30,30); //Australie Droit
     pays[28]=Oceanie_2;
-<<<<<<< HEAD
 
 
    // 1->Rouge
@@ -140,8 +135,6 @@ int main()
    // 3-> Vert 
 
     //-----INITIALISATION FRONTIERE-----
-=======
->>>>>>> 9b812bc8b328649a4a2c0532e7dd4e401c13ccef
 
 
 	//Initialisation des zones d'affichage des pions
