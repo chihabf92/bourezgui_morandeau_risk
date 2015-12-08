@@ -24,7 +24,7 @@ class Gestion_tour
 	
 		Gestion_tour();
 		~Gestion_tour();
-		int tour joueur; //variable qui définit quelle personne joue
+		int tour_joueur; //variable qui définit quelle personne joue
 		void gestion_MacroTour(); //gestion d'un macro tour 
 		void gestion_MicroTour(); //gestion d'un micro tour
 	
