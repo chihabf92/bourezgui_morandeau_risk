@@ -139,6 +139,7 @@ int main()
 
 	//Initialisation zone afichage des teritoires
 	
+	
 	tab[0][0]=106;//x1					x1,y1	*------------*  x2,y1
 	tab[0][1]=198;//x2							|			 |	
 	tab[0][2]=55;//y1							|			 |
