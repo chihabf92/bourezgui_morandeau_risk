@@ -4,7 +4,7 @@ project (Risk)
 
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
-add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp src/Moteur_jeu.cpp src/Ia.cpp)
+add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp src/Moteur_jeu.cpp src/Ia.cpp src/IA_moyen.cpp)
 add_executable(Test divers/Test.cpp)
 # SFML 
 set(SFML_ROOT "/usr/lsa")
