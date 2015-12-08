@@ -254,7 +254,7 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 		}
 }
 
-int Moteur_jeu::VerificationSouris(int x, int y, int test[29][4])
+int Moteur_jeu::VerificationSouris(int x, int y, int** test)
 {
 	int i=0;
 	bool tampon=false;

@@ -74,13 +74,13 @@ int main()
     pays[3]=Amerique_Nord_4;
 
 
-    Territoire Amerique_Sud_1(4,joueur_1.get_couleur(),10,10,331,"Amerique_Sud_1",205,288,3,5,6,30,30,30);  //Haut
+    Territoire Amerique_Sud_1(4,joueur_1.get_couleur(),10,2,331,"Amerique_Sud_1",205,288,3,5,6,30,30,30);  //Haut
     pays[4]=Amerique_Sud_1;
-    Territoire Amerique_Sud_2(5,joueur_2.get_couleur(),10,10,403,"Amerique_Sud_2",205,330,4,6,7,30,30,30);  //Gauche 
+    Territoire Amerique_Sud_2(5,joueur_2.get_couleur(),10,2,403,"Amerique_Sud_2",205,330,4,6,7,30,30,30);  //Gauche 
     pays[5]=Amerique_Sud_2;
-    Territoire Amerique_Sud_3(6,joueur_3.get_couleur(),10,10,405,"Amerique_Sud_3",280,330,4,5,7,30,30,30);  //Droit
+    Territoire Amerique_Sud_3(6,joueur_3.get_couleur(),10,2,405,"Amerique_Sud_3",280,330,4,5,7,30,30,30);  //Droit
     pays[6]=Amerique_Sud_3;
-    Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),10,10,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
+    Territoire Amerique_Sud_4(7,joueur_1.get_couleur(),10,2,511,"Amerique_Sud_4",245,480,5,6,30,30,30,30);  //Bas
     pays[7]=Amerique_Sud_4;
 
     Territoire Europe_1(8,joueur_3.get_couleur(),10,3,158,"Europe_1",420,140,9,30,30,30,30,30); //France

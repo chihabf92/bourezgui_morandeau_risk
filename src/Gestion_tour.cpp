@@ -1,6 +1,6 @@
 #include "Gestion_tour.hpp"
 
-Gestion_tour::Gestion_tour
+Gestion_tour::Gestion_tour()
 {
 	tour_joueur=0;
 }
@@ -14,19 +14,19 @@ void Gestion_tour::gestion_MacroTour()
 	/*----------Choix du joueur qui va jouer (redondant)----------*/
 		if(tour_joueur!=3)
 		{
-			tour_joueur=(tour_joueur+1);
+			tour_joueur=tour_joueur+1;
 			}
 		else
 		{
 			tour_joueur=1;
 		}
 		cout<<"C'est au tour du joueur "<<tour_joueur<<" de jouer"<<endl;
-		gestion_MicroTour();
+		//gestion_MicroTour();
 		
 	}
 }
 
-void Gestion_tour::gestion_Microtour()
+void Gestion_tour::gestion_MicroTour()
 {
 	Moteur_jeu action;
 	int a;
@@ -35,12 +35,12 @@ void Gestion_tour::gestion_Microtour()
 	localPosition.y=0;
 	
 	/*---------- Etape 1: Renforcement----------*/
-	cout<<"Combien de personnne souhaiter vous faire déplacer?""<<endl;
+	cout<<"Combien de personnne souhaiter vous faire déplacer?"<<endl;
 	cin>> a;
 	do 
 	{
-		localPosition = sf::Mouse::getPosition(window);
-	}while(LocalPosition.x==0 && Local.Position.y==0);
+		//localPosition = sf::Mouse::getPosition(window);
+	}while(localPosition.x==0 && localPosition.y==0);
 	
 	
 	/*---------- Etape 1: Déplacement----------*/
