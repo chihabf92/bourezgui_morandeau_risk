@@ -5,13 +5,14 @@
 class Pays {
   // Attributes
 public:
-  static int nombre_armee;
+  int nombre_armee;
   int joueur;
   int identifiant_pays;
   std::vector<int> voisin;
   // Operations
 public:
   Pays ();
+  Pays (int a, int b, int c, std::vector<int> d);
 };
 
 #endif
