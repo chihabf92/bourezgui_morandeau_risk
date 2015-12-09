@@ -7,7 +7,7 @@ class Rendu {
 public:
   sf::RenderWindow & window;
   std::vector<Graphique_pays> pays;
-  std::vector<sf::Sprite> pions;
+  std::vector<Graphique_etape> pions;
   sf::Sprite fond;
   // Operations
 public:

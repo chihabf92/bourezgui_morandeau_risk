@@ -10,6 +10,7 @@
 #include <vector>
 #include "Pays.hpp"
 #include "Graphique_pays.hpp"
+#include "Graphique_etape.hpp"
 #include "Etat.h"
 #include "Rendu.h"
 
