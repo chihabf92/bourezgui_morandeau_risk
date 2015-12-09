@@ -9,6 +9,9 @@ public:
   int joueur;
   int identifiant_pays;
   std::vector<int> voisin;
+  // Operations
+public:
+  Pays ();
 };
 
 #endif

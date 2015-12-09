@@ -7,6 +7,9 @@ class Etape {
 public:
   int etape;
   int sous_etape;
+  // Operations
+public:
+  Etape ();
 };
 
 #endif

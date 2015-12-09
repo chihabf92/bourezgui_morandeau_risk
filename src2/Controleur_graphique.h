@@ -13,7 +13,7 @@ public:
   Etat & e;
   // Operations
 public:
-  void gerer_evenement ( sf::Event);
+  void gerer_evenement (sf::Event e);
 };
 
 #endif

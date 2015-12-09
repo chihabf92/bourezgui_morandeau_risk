@@ -5,10 +5,14 @@
 class Graphique_pays {
   // Attributes
 public:
-  Text nombre_armee;
-  Sprite pion;
+  sf::Text nombre_armee;
+  sf::Sprite pion;
   int x;
   int y;
+  int id;
+  // Operations
+public:
+  Graphique_pays ();
 };
 
 #endif

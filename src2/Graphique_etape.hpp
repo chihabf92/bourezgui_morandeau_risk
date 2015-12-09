@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstring>
 #include <SFML/Graphics.hpp> 
-#include <SFMncL/Window.hpp>
+#include <SFML/Window.hpp>
 #include "Graphique_etape.h"
 
-#enfif
+#endif

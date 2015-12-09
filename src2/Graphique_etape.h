@@ -7,9 +7,12 @@
 class Graphique_etape {
   // Attributes
 public:
-  Text etape;
+  sf::Text etape;
   sf::Sprite pion;
   Etape e;
+  // Operations
+public:
+  Graphique_etape ();
 };
 
 #endif

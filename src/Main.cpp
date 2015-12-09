@@ -59,7 +59,7 @@ int main()
 	Territoire b;
 	pionSupplementaire=2;
 	int z;
-
+	int tab[29][24];
 	
 	
     //-----INITIALISATION TERRITOIRE----

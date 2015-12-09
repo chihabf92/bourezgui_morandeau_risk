@@ -10,6 +10,9 @@ public:
   int pays_initial;
   int pays_final;
   int nombre_armee;
+  // Operations
+public:
+  Deplacer ();
 };
 
 #endif

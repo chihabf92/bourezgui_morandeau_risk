@@ -3,6 +3,9 @@
 
 /// class Action - 
 class Action {
+  // Operations
+protected:
+  ~Action  ();
 };
 
 #endif

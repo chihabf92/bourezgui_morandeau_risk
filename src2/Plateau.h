@@ -9,6 +9,9 @@ class Plateau {
   // Attributes
 public:
   std::vector<Pays> p;
+  // Operations
+public:
+  Plateau ();
 };
 
 #endif

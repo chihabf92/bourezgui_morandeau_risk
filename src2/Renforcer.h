@@ -9,6 +9,9 @@ class Renforcer : public Action {
 public:
   int pays_a_renforcer;
   int nombre_armee_a_mettre;
+  // Operations
+public:
+  Renforcer ();
 };
 
 #endif

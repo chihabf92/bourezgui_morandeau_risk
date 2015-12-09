@@ -5,6 +5,7 @@ project (Risk)
 #ou mettre le output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 add_executable(Main src/Main.cpp src/Joueur.cpp src/Territoire.cpp src/Pion.cpp src/Frontiere.cpp src/Etat_jeu.cpp src/Moteur_jeu.cpp src/Ia.cpp src/IA_moyen.cpp src/Gestion_tour.cpp)
+add_executable(Main2 src2/Action.cpp src2/Attaquer.cpp src2/Controleur_graphique src2/Deplacer.cpp src2/Etape.cpp src2/Etat.cpp src2/Graphique_etape.cpp src2/Graphique_pays.cpp src2/Main.cpp src2/Moteur.cpp src2/Pays.cpp src2/Plateau.cpp src2/Rendu.cpp  src2/Renforcer.cpp)
 add_executable(Test divers/Test.cpp)
 # SFML 
 set(SFML_ROOT "/usr/lsa")
@@ -15,6 +16,7 @@ if(SFML_FOUND)
    include_directories(${SFML_INCLUDE_DIR})
    target_link_libraries(Main ${SFML_LIBRARIES})
    target_link_libraries(Test ${SFML_LIBRARIES})
+   target_link_libraries(Main2 ${SFML_LIBRARIES})
 endif()
 
 #mettre en c++11

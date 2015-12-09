@@ -13,6 +13,9 @@ public:
   Etape e;
   int nombre_joueur;
   int joueur_en_cours;
+  // Operations
+public:
+  Etat ();
 };
 
 #endif

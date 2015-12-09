@@ -10,6 +10,9 @@ public:
   int nombre_armee;
   int defenseur;
   int attaquant;
+  // Operations
+public:
+  Attaquer ();
 };
 
 #endif
