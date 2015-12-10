@@ -16,6 +16,7 @@ public:
   // Operations
 public:
   Etat ();
+  Etat (Plateau a, Etape b, int c, int d);
 };
 
 #endif

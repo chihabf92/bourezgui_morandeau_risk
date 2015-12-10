@@ -16,3 +16,13 @@ Pays::Pays (int  a, int  b, int c, std::vector<int> d)
 	}
 
 }
+
+void Pays::set_voisin (int a, int b, int c, int d, int  e, int f)
+{
+	a=voisin[0];
+	b=voisin[1];
+	c=voisin[2];
+	d=voisin[3];
+	e=voisin[4];
+	f=voisin[5];
+}

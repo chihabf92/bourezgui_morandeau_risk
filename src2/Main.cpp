@@ -18,8 +18,27 @@
 #include "Plateau.hpp"
 #include "Rendu.hpp"
 #include "Renforcer.h"
-
+using namespace sf;
+using namespace std;
 int main (void)
 {
+	// création de la fenêtre
+    sf::RenderWindow window(sf::VideoMode(1152, 1152), "risk");
+
+	/*----------Initialisation----------*/
+
+	Plateau p; //créaton  du plateau;
+	Etape et; //initialisation de l'etape du jeu
+	p.Initialisation ();
+	et.etape=2;
+	et.sous_etape=8;
+	Etat e (p,et,3,0);
+	
+
+
+
+
+
+
 	return 0;
 }

@@ -1,6 +1,6 @@
 #include "Deplacer.h"
 
-Deplacer::Deplacer()
+Deplacer::Deplacer ()
 {
 	
 }

@@ -12,6 +12,7 @@ public:
   // Operations
 public:
   Plateau ();
+  void Initialisation ();
 };
 
 #endif
