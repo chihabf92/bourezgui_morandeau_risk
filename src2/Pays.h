@@ -13,7 +13,7 @@ public:
 public:
   Pays ();
   Pays (int a, int b, int c, std::vector<int> d);
-  void set_voisin (int a, int b, int c, int d, int  e, int f);
+  void Set_voisin (int a, int b, int c, int d, int  e, int f);
 };
 
 #endif

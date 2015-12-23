@@ -2,5 +2,5 @@
 
 Deplacer::Deplacer ()
 {
-	
+	type=2;
 }

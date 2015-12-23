@@ -2,5 +2,5 @@
 
 Renforcer::Renforcer()
 {
-	
+	type=3;
 }

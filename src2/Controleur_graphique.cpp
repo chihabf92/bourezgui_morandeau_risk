@@ -1,6 +1,6 @@
 #include "Controleur_graphique.hpp"
 
-void Controleur_graphique::gerer_evenement(sf::Event e)
+void Controleur_graphique::Gerer_evenement(sf::Event e)
  {
  	
  }

@@ -9,14 +9,15 @@ class Rendu {
   // Associations
   // Attributes
 public:
-  sf::RenderWindow & window;
+  sf::RenderWindow  window;
   std::vector<Graphique_pays> pays;
   std::vector<Graphique_etape> etape;
   sf::Sprite fond;
   // Operations
 public:
-  void affiche_etat (Etat * e);
-  void InitialisationRendu ();
+  Rendu  ();
+  void Affiche_etat (Etat * e);
+  void Initialisation_Rendu ();
 };
 
 #endif

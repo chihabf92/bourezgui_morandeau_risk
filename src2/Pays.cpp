@@ -17,8 +17,9 @@ Pays::Pays (int  a, int  b, int c, std::vector<int> d)
 
 }
 
-void Pays::set_voisin (int a, int b, int c, int d, int  e, int f)
+void Pays::Set_voisin (int a, int b, int c, int d, int  e, int f)
 {
+	voisin.resize(6);
 	a=voisin[0];
 	b=voisin[1];
 	c=voisin[2];
