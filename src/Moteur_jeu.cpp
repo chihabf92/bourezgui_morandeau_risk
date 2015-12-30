@@ -222,6 +222,8 @@ void Moteur_jeu::AttaquerBavecXpionsDeA(Joueur j, Territoire* a, Territoire* b, 
 				scoreB[2]=tampon1;				
 			}
 		}
+
+		
 		if (x<c)
 			{
 				c=x;
