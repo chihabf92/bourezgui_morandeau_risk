@@ -15,6 +15,7 @@ bool Moteur::Resoudre_Action (Action a, Etat * e)
 		int perteB=0;
 		int i;
 		int c;
+		int bloubloublou;
 
 		while(tampon1==0)
 		{
