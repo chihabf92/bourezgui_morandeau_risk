@@ -5,6 +5,7 @@ mkdir -p build bin
 
 # generation des headers
 dia2code -d src2/ res2/Diagramme_class.dia 
+#dia2code -d src2/Serveur res2/partie_serveur.dia
 
 cd build
 cmake ..

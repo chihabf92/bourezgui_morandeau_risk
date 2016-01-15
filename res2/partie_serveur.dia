@@ -703,10 +703,10 @@
       <dia:attribute name="attributes">
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#actionDB#</dia:string>
+            <dia:string>#commandeDB#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#ActionDB&amp;#</dia:string>
+            <dia:string>#CommandeDB&amp;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -757,10 +757,10 @@
           <dia:attribute name="parameters">
             <dia:composite type="umlparameter">
               <dia:attribute name="name">
-                <dia:string>#actionDB#</dia:string>
+                <dia:string>#commandeDB#</dia:string>
               </dia:attribute>
               <dia:attribute name="type">
-                <dia:string>#ActionDB&amp;#</dia:string>
+                <dia:string>#CommandeDB&amp;#</dia:string>
               </dia:attribute>
               <dia:attribute name="value">
                 <dia:string>##</dia:string>
@@ -2364,19 +2364,19 @@
         <dia:point val="41.55,24.15"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="41.5,24.1;65.2,31.6"/>
+        <dia:rectangle val="41.5,24.1;68.28,31.6"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="41.55,24.15"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="23.600000000000001"/>
+        <dia:real val="26.68"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="7.4000000000000004"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#ActionDB#</dia:string>
+        <dia:string>#CommandeDB#</dia:string>
       </dia:attribute>
       <dia:attribute name="stereotype">
         <dia:string>##</dia:string>
@@ -2488,10 +2488,10 @@
         </dia:composite>
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#action#</dia:string>
+            <dia:string>#commande#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#map&lt;int,unique_ptr&lt;Action&gt; &gt;#</dia:string>
+            <dia:string>#map&lt;int,unique_ptr&lt;Commande&gt; &gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -2513,7 +2513,7 @@
       <dia:attribute name="operations">
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#ActionDB#</dia:string>
+            <dia:string>#CommandeDB#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -2543,13 +2543,13 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#getAction#</dia:string>
+            <dia:string>#getCommande#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#const Action*#</dia:string>
+            <dia:string>#const Commande*#</dia:string>
           </dia:attribute>
           <dia:attribute name="visibility">
             <dia:enum val="0"/>
@@ -2591,7 +2591,7 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#addAction#</dia:string>
+            <dia:string>#addCommande#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -2620,10 +2620,10 @@
           <dia:attribute name="parameters">
             <dia:composite type="umlparameter">
               <dia:attribute name="name">
-                <dia:string>#action#</dia:string>
+                <dia:string>#commande#</dia:string>
               </dia:attribute>
               <dia:attribute name="type">
-                <dia:string>#unique_ptr&lt;Action&gt;#</dia:string>
+                <dia:string>#unique_ptr&lt;Commande&gt;#</dia:string>
               </dia:attribute>
               <dia:attribute name="value">
                 <dia:string>##</dia:string>
@@ -2639,7 +2639,7 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#removeAction#</dia:string>
+            <dia:string>#removeCommande#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -2687,13 +2687,13 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#makeAction#</dia:string>
+            <dia:string>#makeCommande#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#const Action*#</dia:string>
+            <dia:string>#const Commande*#</dia:string>
           </dia:attribute>
           <dia:attribute name="visibility">
             <dia:enum val="0"/>
@@ -2733,10 +2733,10 @@
             </dia:composite>
             <dia:composite type="umlparameter">
               <dia:attribute name="name">
-                <dia:string>#action#</dia:string>
+                <dia:string>#commande#</dia:string>
               </dia:attribute>
               <dia:attribute name="type">
-                <dia:string>#unique_ptr&lt;Action&gt;#</dia:string>
+                <dia:string>#unique_ptr&lt;Commande&gt;#</dia:string>
               </dia:attribute>
               <dia:attribute name="value">
                 <dia:string>##</dia:string>
@@ -2761,19 +2761,19 @@
         <dia:point val="66.5,29.9"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="66.45,29.85;72.055,35.55"/>
+        <dia:rectangle val="66.45,29.85;72.0775,35.55"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="66.5,29.9"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="5.5049999999999999"/>
+        <dia:real val="5.5274999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="5.5999999999999996"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#Action#</dia:string>
+        <dia:string>#Commande#</dia:string>
       </dia:attribute>
       <dia:attribute name="stereotype">
         <dia:string>##</dia:string>
@@ -3086,22 +3086,24 @@
         <dia:boolean val="false"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="65.15,26.85"/>
+        <dia:point val="68.23,26.85"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="64.4,26.05;69.4525,30.6497"/>
+        <dia:rectangle val="67.48,26.05;73.2278,33.5"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="65.15,26.85"/>
-        <dia:point val="69.2525,26.85"/>
-        <dia:point val="69.2525,29.8497"/>
+        <dia:point val="68.23,26.85"/>
+        <dia:point val="73.1278,26.85"/>
+        <dia:point val="73.1278,32.7"/>
+        <dia:point val="72.0778,32.7"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
         <dia:enum val="1"/>
+        <dia:enum val="0"/>
       </dia:attribute>
       <dia:attribute name="orth_autoroute">
         <dia:boolean val="true"/>
